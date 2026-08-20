@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Marketing I — Living Study Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --cream:#17130f;       /* main bg — warm near-black */
+  --cream2:#221a14;      /* secondary bg */
+  --card:#241d16;        /* card bg */
+  --ink:#f2ebdd;         /* main text — warm cream */
+  --ink2:#cabfab;        /* secondary text */
+  --muted:#94897a;       /* muted */
+  --line:#3b3228;        /* borders */
+  --accent:#d17a3f;      /* terracotta (brightened for dark) */
+  --accent2:#e8974f;
+  --blue:#8cbcd6;        /* applied text */
+  --bluebg:#15303c;      /* applied bg */
+  --yellow:#e3ca6a;      /* trap text */
+  --yellowbg:#382e11;    /* trap bg */
+  --green:#83c497;       /* global text */
+  --greenbg:#173327;     /* global bg */
+  --gold:#d3a74d;
+  --shadow:0 2px 4px rgba(0,0,0,.30),0 10px 28px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'DM Sans',system-ui,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.15;color:var(--ink);margin:0}
+
+/* Header */
+header.top{
+  background:linear-gradient(135deg,#2b241b,#4a3826);
+  color:#f6f1e7;padding:38px 20px 30px;margin-bottom:0;
+  border-bottom:4px solid var(--accent2);
+}
+header.top .inner{max-width:1000px;margin:0 auto}
+header.top .kicker{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#e0b78a;font-weight:700}
+header.top h1{color:#fdf8ee;font-size:2.4rem;margin:6px 0 4px}
+header.top p{margin:6px 0 0;color:#e9ddc7;font-size:1rem;max-width:640px}
+
+/* Tabs */
+nav.tabs{position:sticky;top:0;z-index:20;background:var(--cream2);border-bottom:1px solid var(--line);
+  display:flex;gap:4px;flex-wrap:wrap;padding:8px 20px;box-shadow:0 2px 8px rgba(40,30,15,.04)}
+nav.tabs .tinner{max-width:1000px;margin:0 auto;width:100%;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--ink2);padding:7px 14px;border-radius:20px;
+  font-size:.9rem;font-weight:500;cursor:pointer;font-family:inherit;transition:.15s}
+.tab:hover{background:#fff}
+.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tab.locked{opacity:.5;cursor:not-allowed}
+.tab .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-left:6px;vertical-align:middle}
+
+/* Sections */
+.panel{display:none;padding-top:28px}
+.panel.active{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.banner{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-radius:16px;
+  padding:22px 24px;margin:0 0 26px;box-shadow:var(--shadow)}
+.banner .lbl{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;opacity:.9;font-weight:700}
+.banner h2{color:#fff;font-size:1.55rem;margin:4px 0 6px}
+.banner p{margin:0;font-size:1.02rem;opacity:.96}
+
+h2.sec{font-size:1.7rem;margin:34px 0 4px;padding-top:6px}
+.sub{color:var(--muted);font-size:.95rem;margin:0 0 18px}
+.divider{height:1px;background:var(--line);margin:36px 0 0}
+
+/* Cards */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;box-shadow:var(--shadow)}
+.card h3{font-size:1.12rem;margin-bottom:6px}
+.card h4{font-size:1rem;margin-bottom:4px;color:var(--accent)}
+.card p{margin:0 0 8px;color:var(--ink2);font-size:.96rem}
+.card p:last-child{margin-bottom:0}
+.card .tagrow{margin-top:10px}
+.pill{display:inline-block;background:var(--cream2);border:1px solid var(--line);border-radius:12px;
+  padding:2px 9px;font-size:.76rem;color:var(--ink2);margin:2px 4px 2px 0;font-weight:500}
+.num{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;
+  align-items:center;justify-content:center;font-weight:700;font-size:.85rem;margin-right:8px;flex:none}
+
+/* Callouts */
+.callout{border-radius:12px;padding:14px 16px;margin:16px 0;font-size:.95rem;border:1px solid}
+.callout .h{font-weight:700;display:block;margin-bottom:3px;font-size:.9rem;letter-spacing:.02em}
+.applied{background:var(--bluebg);border-color:#2f5568;color:#d6e9f2}
+.applied .h{color:var(--blue)}
+.trap{background:var(--yellowbg);border-color:#5f5426;color:#f1e4b0}
+.trap .h{color:var(--yellow)}
+.global{background:var(--greenbg);border-color:#2f5641;color:#cdead6}
+.global .h{color:var(--green)}
+.take{background:#2a2118;border-color:var(--line);color:var(--ink2)}
+.take .h{color:var(--accent)}
+
+/* Practice (collapsible) */
+details.q{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent2);
+  border-radius:10px;padding:0 16px;margin:10px 0;box-shadow:var(--shadow)}
+details.q summary{cursor:pointer;padding:13px 0;font-weight:600;color:var(--ink);list-style:none;
+  display:flex;align-items:center;gap:8px;font-size:.97rem}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary .type{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:var(--accent);
+  color:#fff;padding:2px 8px;border-radius:10px;font-weight:700;flex:none}
+details.q[open] summary{border-bottom:1px dashed var(--line)}
+details.q .ans{padding:12px 0 16px;color:var(--ink2);font-size:.95rem}
+details.q .ans strong{color:var(--ink)}
+
+/* Dashboard specifics */
+.evalgrid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:6px}
+.eval{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow)}
+.eval .pct{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--accent);font-weight:800}
+.eval .nm{font-size:.86rem;color:var(--ink2);font-weight:500;margin-top:2px}
+.eval .note{font-size:.72rem;color:var(--muted);margin-top:3px}
+.bar{height:14px;border-radius:8px;background:var(--cream2);overflow:hidden;display:flex;margin:14px 0 4px;border:1px solid var(--line)}
+.bar span{display:block;height:100%}
+.trackrow{display:flex;align-items:flex-start;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line)}
+.trackrow:last-child{border-bottom:none}
+.trackrow input{margin-top:5px;width:18px;height:18px;accent-color:var(--accent);flex:none;cursor:pointer}
+.trackrow .txt strong{display:block;color:var(--ink)}
+.trackrow .txt span{font-size:.9rem;color:var(--muted)}
+.statusdone{color:var(--green);font-weight:600}
+.legend{font-size:.85rem;color:var(--muted);margin-top:10px}
+a.src{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+a.src:hover{color:var(--accent2)}
+.small{font-size:.85rem;color:var(--muted)}
+ul.clean{margin:6px 0;padding-left:20px}
+ul.clean li{margin:4px 0;color:var(--ink2)}
+footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px;padding-top:20px;border-top:1px solid var(--line)}
+
+/* Night mode is the base design. Keep it dark on BOTH light- and dark-OS
+   so Safari/Chrome never auto-invert it back to light. */
+@media (prefers-color-scheme: light){
+  :root{color-scheme:dark}
+  body{background:var(--cream);color:var(--ink)}
+  .card,.eval,details.q,.take{background:var(--card)}
+  h1,h2,h3,h4{color:var(--ink)}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="inner">
+    <div class="kicker">UDD · Business Administration · Semester 4</div>
+    <h1>Marketing I — Living Study Hub</h1>
+    <p>One page that grows with the course. Dashboard first; each unit becomes a full study guide as we cover it. Built from your own lecture deck &amp; readings — verified, no invented content.</p>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tinner">
+    <button class="tab active" data-t="dash">📊 Dashboard</button>
+    <button class="tab" data-t="u1">Unit I · Intro to Marketing<span class="dot"></span></button>
+    <button class="tab" data-t="u2">Unit II · Marketing &amp; Strategy<span class="dot"></span></button>
+    <button class="tab" data-t="summary">📌 Summary / Last read</button>
+    <button class="tab" data-t="cheat">🎯 Cheat Sheet</button>
+    <button class="tab locked" title="Unlocks when we cover it">Unit III · Behavior 🔒</button>
+    <button class="tab locked" title="Unlocks when we cover it">Unit IV · Markets 🔒</button>
+    <button class="tab locked" title="Unlocks when we cover it">Unit V · Positioning 🔒</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ================= DASHBOARD ================= -->
+<section class="panel active" id="dash">
+  <div class="banner">
+    <div class="lbl">The course in one line</div>
+    <h2>Marketing = creating value for customers and capturing value back in return.</h2>
+    <p>Every unit is a variation on that sentence. Keep it as your anchor all semester.</p>
+  </div>
+
+  <h2 class="sec">How your grade is built</h2>
+  <p class="sub">From the Unit I syllabus slide. Two grades let you erase your worst — use them as low-stakes practice, not throwaways.</p>
+  <div class="evalgrid">
+    <div class="eval"><div class="pct">15%</div><div class="nm">Group Works</div><div class="note">worst grade erased · <b>no AI allowed</b></div></div>
+    <div class="eval"><div class="pct">15%</div><div class="nm">Reading Quizzes</div><div class="note">worst grade erased</div></div>
+    <div class="eval"><div class="pct">20%</div><div class="nm">Test 1</div><div class="note">partial</div></div>
+    <div class="eval"><div class="pct">20%</div><div class="nm">Test 2</div><div class="note">partial</div></div>
+    <div class="eval"><div class="pct">30%</div><div class="nm">Final Exam</div><div class="note">cumulative — biggest lever</div></div>
+  </div>
+  <div class="bar" title="Weight of each component">
+    <span style="width:15%;background:#f0a860"></span>
+    <span style="width:15%;background:#e28a45"></span>
+    <span style="width:20%;background:#d17a3f"></span>
+    <span style="width:20%;background:#b3602f"></span>
+    <span style="width:30%;background:#8f4a24"></span>
+  </div>
+  <p class="legend">Attendance: minimum <strong>75%</strong> required — you can miss up to 3 full sessions (6 modules). Class starts 8:30 sharp; no phones; sign the QR only if you're actually there.</p>
+
+  <h2 class="sec">The 5 units ahead</h2>
+  <p class="sub">Check each off as we finish it. Your progress saves in this file on your computer.</p>
+  <div class="card" style="padding:6px 18px">
+    <div class="trackrow">
+      <input type="checkbox" data-k="u1">
+      <div class="txt"><strong>Unit I — Introduction to Marketing</strong><span>Concept &amp; evolution, needs/wants/demand, value, marketing myopia, the marketing process, satisfaction &amp; loyalty. <span class="statusdone">Guide ready →</span></span></div>
+    </div>
+    <div class="trackrow">
+      <input type="checkbox" data-k="u2">
+      <div class="txt"><strong>Unit II — Marketing &amp; Strategy</strong><span>Strategic planning, mission/vision/values, business model, BCG/Ansoff/Brand matrices, PESTEL &amp; micro-environment, VRIO, customer centricity, STP, 4 Ps, SWOT. <span class="statusdone">Guide ready →</span></span></div>
+    </div>
+    <div class="trackrow">
+      <input type="checkbox" data-k="u3">
+      <div class="txt"><strong>Unit III — Market Behavior</strong><span>Organizations as buying units; consumer &amp; organizational buying decision process.</span></div>
+    </div>
+    <div class="trackrow">
+      <input type="checkbox" data-k="u4">
+      <div class="txt"><strong>Unit IV — Market Characterization</strong><span>Segmentation &amp; target selection; demand estimation &amp; forecasting.</span></div>
+    </div>
+    <div class="trackrow">
+      <input type="checkbox" data-k="u5">
+      <div class="txt"><strong>Unit V — Brand Positioning</strong><span>Positioning principles &amp; strategy; perception/positioning maps; repositioning.</span></div>
+    </div>
+  </div>
+
+  <h2 class="sec">How we'll study together</h2>
+  <p class="sub">The method, in plain terms — so you know what to expect each session.</p>
+  <div class="grid">
+    <div class="card"><h4>Understand &gt; memorize</h4><p>Goal: you can explain a concept in your own words and teach it back. Memorized-but-not-understood collapses under exam pressure.</p></div>
+    <div class="card"><h4>Produce, then check</h4><p>You write/answer <em>first</em>, I check second. Retrieval is the skill that transfers to the exam — reading alone doesn't.</p></div>
+    <div class="card"><h4>Aim at real gaps</h4><p>Once you have graded quizzes/tests back, we read them question-by-question to find <em>how</em> you lose points, then target exactly that.</p></div>
+    <div class="card"><h4>Source-faithful</h4><p>Every definition traces to your deck or readings. If something isn't in your materials, I flag it rather than invent it.</p></div>
+  </div>
+
+  <div class="callout global"><span class="h">🌍 What I still need from you (fills the diagnostic gaps)</span>
+  When you get them: (1) graded reading quizzes / Test 1 — so we find your failure pattern; (2) any rubric or "PEE / explain don't dump" style guidance from the professor; (3) confirmed exam-focus topics. Drop them in this folder and say the word — I'll fold them into this hub.</div>
+
+  <p class="small">Sources for this hub: <a class="src" href="#">UNIDAD I (FTD) English 2026.pptx</a> · <a class="src" href="https://hbr.org/2004/07/marketing-myopia">Levitt, "Marketing Myopia," HBR 1960</a>. Course dates for Unit I: 04/08–07/08 2026.</p>
+</section>
+
+<!-- ================= UNIT I ================= -->
+<section class="panel" id="u1">
+  <div class="banner">
+    <div class="lbl">Unit I · Introduction to Marketing</div>
+    <h2>Marketing isn't selling things — it's satisfying needs profitably by creating and capturing value.</h2>
+    <p>If you leave Unit I with one instinct, make it this: start from the <em>customer's need</em>, not from your product. Everything below is that idea, unpacked.</p>
+  </div>
+
+  <!-- 1. What is marketing -->
+  <h2 class="sec">1 · What marketing actually is</h2>
+  <p class="sub">Four definitions from the deck. You don't need all four verbatim — you need the common thread and one you can quote.</p>
+  <div class="grid">
+    <div class="card"><h4>AMA (American Marketing Association)</h4><p>"The activity and processes for creating, communicating, delivering, and exchanging offerings that have value for customers, clients, partners, and society at large."</p><div class="tagrow"><span class="pill">4 verbs: create · communicate · deliver · exchange</span></div></div>
+    <div class="card"><h4>CIM (Chartered Institute of Marketing)</h4><p>"The management process responsible for identifying, anticipating and satisfying customer requirements profitably."</p><div class="tagrow"><span class="pill">note the word: profitably</span></div></div>
+    <div class="card"><h4>Kotler</h4><p>"Managing profitable customer relationships. The goal is to create value for customers and capture value from them in return."</p><div class="tagrow"><span class="pill">value in ↔ value back</span></div></div>
+    <div class="card"><h4>Stanton</h4><p>"A total system of business activities designed to plan products that satisfy needs, set prices, promote, and distribute them to target markets to achieve the organization's objectives."</p><div class="tagrow"><span class="pill">hints at the 4 Ps: product, price, place, promotion</span></div></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 The thread</span>Every definition contains: <strong>value + customer needs + exchange/relationship + a company goal (profit)</strong>. If your answer names those four, you've captured "what marketing is" no matter which author is asked.</div>
+  <div class="callout trap"><span class="h">⚠️ Trap — "Marketing = advertising"</span>Advertising is <em>one</em> promotion tool inside marketing. Marketing spans research, product, price, distribution, and relationship-building. Saying they're the same is the classic wrong answer the professor opens the course with.</div>
+
+  <!-- 2. Selling vs marketing -->
+  <h2 class="sec">2 · Selling vs. Marketing</h2>
+  <p class="sub">Levitt's razor-sharp distinction — a favorite exam contrast.</p>
+  <div class="grid">
+    <div class="card" style="border-top:3px solid #d0685a"><h3>Selling</h3><p>Focuses on the <strong>seller's</strong> need — converting the product you already made into cash. Starts from the product.</p></div>
+    <div class="card" style="border-top:3px solid #5a9e73"><h3>Marketing</h3><p>Focuses on the <strong>buyer's</strong> need — satisfying the customer through the whole offering. Starts from the customer, so the product becomes a <em>consequence</em> of the marketing effort.</p></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 One-liner to memorize</span>"Selling starts with the product and the seller's need for cash; marketing starts with the customer's need and works backward." (Levitt, <em>Marketing Myopia</em>)</div>
+
+  <!-- 3. Evolution -->
+  <h2 class="sec">3 · The evolution of marketing (1.0 → 6.0)</h2>
+  <p class="sub">The focus of marketing shifted over time. Learn each stage by its <em>one-word focus</em>.</p>
+  <div class="grid">
+    <div class="card"><h4>1.0 — Product</h4><p>Sell what the company produces; emphasis on quality &amp; innovation. One-way mass advertising to reach as many buyers as possible.</p></div>
+    <div class="card"><h4>2.0 — Consumer</h4><p>Consumer at the center. Understand needs &amp; desires. Market research, segmentation, customization for niches.</p></div>
+    <div class="card"><h4>3.0 — Sustainable</h4><p>The whole person — values &amp; aspirations. Purpose-driven brands; economic + environmental + social balance.</p></div>
+    <div class="card"><h4>4.0 — Digital</h4><p>Connectivity &amp; real-time interaction. Omnichannel, social media, real-time analytics, user-experience (UX) based marketing.</p></div>
+    <div class="card"><h4>5.0 — AI-powered</h4><p>Artificial intelligence (AI), Big Data &amp; automation to personalize experience and optimize efficiency; machine learning predicts buying behavior.</p></div>
+    <div class="card"><h4>6.0 — Emerging (?)</h4><p>Influencer marketing, user-generated content, community, trust, retail media, measurable performance.</p></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 Memory hook</span>Product → Consumer → Sustainable → Digital → AI → Community. Roughly: <em>what we make → who buys → their values → their screens → their data → their tribe.</em></div>
+
+  <!-- 4. Five orientations -->
+  <h2 class="sec">4 · The 5 marketing concepts (orientations)</h2>
+  <p class="sub">Five philosophies a business can run on. Different businesses fit different concepts.</p>
+  <div class="card" style="padding:8px 18px">
+    <div class="trackrow" style="border-color:var(--line)"><span class="num">1</span><div class="txt"><strong>Production concept</strong><span>Focus on availability &amp; efficiency at an affordable price. Examples: Ford, Toyota, Lenovo.</span></div></div>
+    <div class="trackrow"><span class="num">2</span><div class="txt"><strong>Product concept</strong><span>Focus on quality &amp; continuous product improvement. ⚠️ Watch out for <em>marketing myopia</em> here.</span></div></div>
+    <div class="trackrow"><span class="num">3</span><div class="txt"><strong>Selling concept</strong><span>Push hard to sell what you make — used for <em>unsought goods</em> (e.g. funeral services) people don't seek out.</span></div></div>
+    <div class="trackrow"><span class="num">4</span><div class="txt"><strong>Marketing concept</strong><span>Not finding the right customers for your product, but the right products for your customers. Lead the consumer to value.</span></div></div>
+    <div class="trackrow"><span class="num">5</span><div class="txt"><strong>Societal / Sustainable concept</strong><span>Purpose-driven: "the future of profit is purpose." People · Planet · Profit.</span></div></div>
+  </div>
+  <div class="callout trap"><span class="h">⚠️ Don't confuse Production vs Product</span><strong>Produc<u>tion</u></strong> = make it cheap &amp; available (efficiency). <strong>Produc<u>t</u></strong> = make it <em>better</em> (quality). Same first six letters, opposite emphasis — a favorite trick distinction.</div>
+
+  <!-- 5. Needs wants demand -->
+  <h2 class="sec">5 · Needs · Wants · Demand · Value</h2>
+  <p class="sub">The vocabulary that separates a marketer's answer from a layperson's.</p>
+  <div class="grid">
+    <div class="card"><h4>Need</h4><p>A basic state of felt deprivation (food, safety, belonging). <strong>Exists</strong> — not created by marketing.</p></div>
+    <div class="card"><h4>Want</h4><p>A need <em>shaped by culture &amp; personality</em> into a specific object. Hungry (need) → wants a burger, not rice.</p></div>
+    <div class="card"><h4>Demand</h4><p>A want <strong>backed by buying power</strong> — you'd buy it and can afford it. Wants + budget = demand.</p></div>
+    <div class="card"><h4>Value</h4><p>The customer's judgment of benefits received vs. cost/effort given. Brands win by raising perceived value.</p></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 The Carl's Jr. example (from the deck)</span>You feel hunger (<strong>need</strong>). You picture a Double Original Big Angus rather than rice (<strong>want</strong>). At $9,390 you decide it's worth it and you can pay (<strong>demand</strong>) — vs. a $2,390 ready-to-eat option, or a $0 home-made one where you "hold back." The price/benefit trade-off you run is exactly a <strong>value</strong> judgment.</div>
+  <div class="callout trap"><span class="h">⚠️ Exam framing — "Are needs created?"</span>Answer: marketers <em>don't create needs</em> (those pre-exist); they <em>shape wants</em> and <em>stimulate demand</em>. Saying "marketing creates needs" is the trap answer.</div>
+
+  <!-- 6. Marketing myopia -->
+  <h2 class="sec">6 · Marketing Myopia <span class="small">(Levitt, HBR 1960 — your assigned reading)</span></h2>
+  <p class="sub">A near-sighted focus on <em>selling your product</em> instead of seeing the big picture of what customers really want. High-probability quiz + exam material.</p>
+  <div class="card">
+    <h3>The core thesis</h3>
+    <p>Industries don't decline because the market gets saturated — they decline because of a <strong>failure of management</strong>. Firms define their business by their <em>product</em> instead of by the <em>customer need</em> they serve, so they miss substitutes and let outsiders steal the customer.</p>
+    <p><strong>"There is no such thing as a growth industry"</strong> — only companies organized to create and capitalize on growth. Growth is never assured.</p>
+  </div>
+  <h3 style="margin:20px 0 8px">The famous examples</h3>
+  <div class="grid">
+    <div class="card"><h4>Railroads 🚂</h4><p>Thought they were in the <em>railroad</em> business, not the <strong>transportation</strong> business. Cars, trucks, planes took the customer — the need grew, they just didn't fill it.</p></div>
+    <div class="card"><h4>Hollywood 🎬</h4><p>Thought it was in the <em>movie</em> business, not the <strong>entertainment</strong> business. Saw TV as a threat instead of an opportunity — nearly wiped out.</p></div>
+    <div class="card"><h4>Oil / Petroleum ⛽</h4><p>Believed there was "no substitute for gasoline." Every rescue (heating oil, jet fuel) came from <em>outsiders</em>. Define it as <strong>energy</strong>, not oil.</p></div>
+    <div class="card"><h4>Detroit / Ford 🚗</h4><p>Ford: "most brilliant and most senseless marketer." Brilliant assembly-line value; senseless in offering only a black car — research studied <em>how</em> to sell, not what customers wanted.</p></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 The move that saves you: define your business by the need</span>Ask "what need am I really serving?" A cinema isn't selling seats — it's selling an evening out. Kodak wasn't selling film — it was selling <em>memories</em>. Broaden the definition and substitutes become opportunities, not threats.</div>
+  <div class="callout trap"><span class="h">⚠️ If asked "what industry is a myopic firm really in?"</span>Give the <strong>broad, need-based</strong> answer (transportation, entertainment, energy, memories) — never the narrow product answer (railroads, movies, oil, film). That flip <em>is</em> the whole point of the article.</div>
+
+  <div class="callout applied"><span class="h">📌 Can a company be product-oriented AND customer-oriented? Yes — the best are both</span>Product excellence isn't the enemy; being <em>only</em> product-oriented is. Levitt's own example: <strong>DuPont &amp; Corning</strong> had top technical/product skill, but succeeded because they were <strong>also</strong> customer-oriented — constantly pointing that know-how at "customer-satisfying uses." Think of it as: product orientation is the <strong>engine</strong>, customer orientation is the <strong>steering wheel</strong>. A firm is myopic only when the product becomes the point in itself, unguided by customer need.
+  <br><br><span class="pill">⧉ Outside example — not from your course deck/reading</span><br><strong>Morgan Motor Company</strong> builds brand-new cars with hand-crafted 1930s styling (ash-wood frames, hand-beaten panels) while quietly modernizing the engineering. That's obsessive product craft aimed squarely at a <em>customer</em> need — nostalgia, romance, exclusivity — not efficient transport. Product-proud and customer-led at once. They'd be myopic only if they thought they were in the "old-looking-car business" rather than the "nostalgic-driving-experience business."</div>
+
+  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Reading</span>Full deep-dive — every example &amp; the key quotes (for the reading quiz)</summary>
+  <div class="ans">
+    <p><strong>The lesser-known examples</strong> (Levitt's "shadow of obsolescence" — industries that thought they were untouchable):</p>
+    <ul class="clean">
+      <li><strong>Dry cleaning</strong> — a "growth industry" when wool was everywhere; undone by synthetic fibers &amp; wash-and-wear that needed less cleaning.</li>
+      <li><strong>Electric utilities</strong> — assumed "no competition, nothing but growth ahead"; threatened by fuel cells &amp; new energy tech.</li>
+      <li><strong>Grocery / corner stores</strong> — supermarkets nearly wiped them out; the old chains "kept their pride but lost their shirts," clinging to the corner-store philosophy.</li>
+      <li><strong>Buggy-whip makers</strong> — even superb whips couldn't survive the car; had they defined themselves as the <em>transportation-accessory</em> business, they might have adapted.</li>
+      <li><strong>DuPont &amp; Corning Glass</strong> — the counter-examples: succeeded <em>not</em> just from product/research strength but because they were also thoroughly <strong>customer-oriented</strong>, constantly finding new customer-satisfying uses.</li>
+      <li><strong>Aluminum (Kaiser &amp; Reynolds)</strong> — stayed a growth industry by deliberately creating new customer-satisfying uses.</li>
+    </ul>
+    <p><strong>Two subtle traps Levitt warns about:</strong></p>
+    <ul class="clean">
+      <li><strong>The idea of indispensability</strong> — oil believed "there is no competitive substitute for gasoline." Every rescue (central oil heating, jet fuel) came from an <em>outsider's</em> invention, not the industry itself.</li>
+      <li><strong>R&amp;D obsession ("Marketing Shortchanged")</strong> — the danger for glamorous new firms (electronics) is paying <em>too much</em> attention to research &amp; development and too little to the customer. Product-and-tech pride crowds out marketing.</li>
+    </ul>
+    <p><strong>The gas-station insight:</strong> nobody actually wants to buy gasoline — the station is "like a tax collector" you pay for the right to keep driving. So a firm eliminating refueling stops isn't offering something technically superior; it's satisfying a real customer irritation.</p>
+    <p><strong>Key quotes worth recognizing:</strong></p>
+    <ul class="clean">
+      <li>"There is <strong>no such thing as a growth industry</strong>."</li>
+      <li>"<strong>Selling focuses on the needs of the seller, marketing on the needs of the buyer.</strong> Selling is preoccupied with the seller's need to convert his product into cash; marketing with … satisfying the needs of the customer."</li>
+      <li>Hollywood "thought it was in the <strong>movie business when it was actually in the entertainment business</strong>."</li>
+      <li>Ford was "both the <strong>most brilliant and the most senseless marketer</strong> in American history."</li>
+      <li>The organization must "think of itself not as producing goods or services but as <strong>buying customers</strong>, as doing the things that will make people want to do business with it."</li>
+    </ul>
+    <p class="small">Source: Levitt, T. (1960/1975), "Marketing Myopia," <em>Harvard Business Review</em>. Full article: the PDF in this folder (<em>mrketing miopia English HBR.pdf</em>).</p>
+  </div></details>
+
+  <!-- 7. Marketing process -->
+  <h2 class="sec">7 · The Marketing Process (5 steps)</h2>
+  <p class="sub">Kotler &amp; Armstrong. Steps 1–4 <strong>create</strong> value for customers; step 5 <strong>captures</strong> value back.</p>
+  <div class="card" style="padding:8px 18px">
+    <div class="trackrow"><span class="num">1</span><div class="txt"><strong>Understand the marketplace &amp; customer needs/wants</strong><span>Research the market and the customer. <span class="pill" style="margin-top:4px">CREATE value</span></span></div></div>
+    <div class="trackrow"><span class="num">2</span><div class="txt"><strong>Design a customer-driven marketing strategy</strong><span>Choose target customers &amp; a value proposition (segmentation, targeting, positioning).</span></div></div>
+    <div class="trackrow"><span class="num">3</span><div class="txt"><strong>Construct an integrated marketing program</strong><span>Deliver superior value — the marketing mix (the 4 Ps: product, price, place, promotion).</span></div></div>
+    <div class="trackrow"><span class="num">4</span><div class="txt"><strong>Build profitable relationships &amp; customer delight</strong><span>Engage customers, manage relationships, create satisfaction.</span></div></div>
+    <div class="trackrow"><span class="num">5</span><div class="txt"><strong>Capture value from customers in return</strong><span>Get sales, profit, and customer equity/loyalty. <span class="pill" style="margin-top:4px">CAPTURE value</span></span></div></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 Structure cue</span>If a question asks "the marketing process," write the <strong>5 numbered steps</strong> and label the split: steps 1–4 = create value, step 5 = capture value. Numbered + labeled beats a flowing paragraph.</div>
+
+  <!-- 8. Holistic marketing -->
+  <h2 class="sec">8 · Holistic Marketing</h2>
+  <p class="sub">Kotler &amp; Keller: "everything matters in marketing" — five dimensions, held together by <strong>consistency</strong> across touchpoints and over time.</p>
+  <div class="grid">
+    <div class="card"><h4>Integrated marketing</h4><p>Consistent mix: positioning, products/services, price, distribution &amp; sales, communication.</p></div>
+    <div class="card"><h4>Internal marketing</h4><p>Aligning the marketing team, other departments, and top management around customer centricity &amp; commitment.</p></div>
+    <div class="card"><h4>Relationship marketing</h4><p>Long-term ties with customers, employees, shareholders, suppliers/partners &amp; community.</p></div>
+    <div class="card"><h4>Performance marketing</h4><p>Revenues, profitability, brand image &amp; value, customer metrics, sustainability.</p></div>
+    <div class="card"><h4>Responsible marketing</h4><p>Ethics, societal impact, customer wellbeing, company benefit, sustainability.</p></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 The keyword is CONSISTENCY</span>Across dimensions, across points of contact, and across time. That's the exam-worthy takeaway of the holistic model.</div>
+
+  <!-- 9. Performance & metrics -->
+  <h2 class="sec">9 · Marketing Performance &amp; Key Performance Indicators (KPIs)</h2>
+  <p class="sub">"Not everything that can be counted counts, and not everything that counts can be counted." (Einstein, quoted in the deck.) Know a few key performance indicators (KPIs) per bucket.</p>
+  <div class="grid">
+    <div class="card"><h4>Results-oriented (P&amp;L = profit &amp; loss)</h4><p>Sales targets · category/market growth · market share · brand penetration · profitability.</p></div>
+    <div class="card"><h4>Advertising</h4><p>Reach · conversion · share of voice · persuasion (ability to drive purchase).</p></div>
+    <div class="card"><h4>Brand value</h4><p>Top of mind · brand awareness · brand loyalty · NPS (net promoter score — defined in §10).</p></div>
+  </div>
+
+  <!-- 10. Satisfaction / experience / loyalty / NPS -->
+  <h2 class="sec">10 · Satisfaction → Experience → Loyalty → NPS</h2>
+  <p class="sub">A chain: good experience builds satisfaction, satisfaction builds loyalty, and NPS measures it.</p>
+  <div class="grid">
+    <div class="card"><h4>Customer satisfaction</h4><p>The customer's perception of the gap between <strong>performance/value received</strong> and their <strong>expectations</strong>. High &amp; consistent satisfaction → loyalty.</p></div>
+    <div class="card"><h4>Customer experience</h4><p>The customer's <em>journey</em> across touchpoints over the whole cycle: <strong>pre-purchase</strong> (need recognition, info search, evaluation) → <strong>purchase</strong> (decision, order/payment) → <strong>post-purchase</strong> (use, re-search, engagement).</p></div>
+    <div class="card"><h4>Customer loyalty</h4><p>Favorable attitudes &amp; behaviors: repeat/expanded purchase, recommending the brand, staying despite competitor moves or a company mistake.</p></div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Net Promoter Score (NPS)</h3>
+    <p>Question: "How likely are you to recommend company X to a friend or colleague?" on a 0–10 scale.</p>
+    <p><strong>Promoters (9–10) · Passives (7–8) · Detractors (0–6).</strong></p>
+    <p style="font-size:1.05rem;background:var(--cream2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;text-align:center;font-weight:600">NPS = % Promoters − % Detractors</p>
+    <p class="small">Bands: &lt;0 red flag (detractors &gt; promoters) · 0–30 acceptable, room to improve · 30–70 strong loyalty &amp; good customer experience · &gt;70 exceptional. Benchmarks: professional services avg ~+43, tech ~+35, consumer goods ~+43.</p>
+  </div>
+  <div class="callout trap"><span class="h">⚠️ NPS mechanics</span>Passives (7–8) are counted in the total base but <em>excluded</em> from the formula. NPS is Promoters minus Detractors — never "average score." Expect a small calculation question.</div>
+
+  <!-- 11. Challenges -->
+  <h2 class="sec">11 · Challenges facing marketing management</h2>
+  <div class="card"><ul class="clean">
+    <li>Uncertain economic environment</li>
+    <li>Digital era &amp; real-time marketing</li>
+    <li>Rapid globalization</li>
+    <li>Growth of non-profit marketing</li>
+    <li>Sustainable marketing — the social responsibility of companies &amp; brands</li>
+  </ul></div>
+
+  <!-- Practice -->
+  <h2 class="sec">✍️ Practice — produce first, then open</h2>
+  <p class="sub">Answer out loud or on paper <em>before</em> you expand each one. Being wrong here = being right on the exam.</p>
+
+  <details class="q"><summary><span class="type">Recall</span>Name the 5 marketing concepts/orientations, in order, with a one-word focus each.</summary>
+    <div class="ans">1) <strong>Production</strong> — efficiency/availability (cheap). 2) <strong>Product</strong> — quality/improvement (better). 3) <strong>Selling</strong> — push, for unsought goods. 4) <strong>Marketing</strong> — right products for your customers. 5) <strong>Societal/Sustainable</strong> — people, planet, profit.</div></details>
+
+  <details class="q"><summary><span class="type">Apply</span>Distinguish need, want and demand using a phone.</summary>
+    <div class="ans"><strong>Need</strong> = communication/connection (basic, pre-exists). <strong>Want</strong> = specifically an iPhone (shaped by culture/identity). <strong>Demand</strong> = you want the iPhone <em>and</em> can afford it, so you'd actually buy it. Marketers shape the want and stimulate demand — they don't create the underlying need.</div></details>
+
+  <details class="q"><summary><span class="type">Compare</span>Selling vs. marketing — one sentence each.</summary>
+    <div class="ans"><strong>Selling</strong> starts from the existing product and the seller's need to convert it to cash. <strong>Marketing</strong> starts from the customer's need, so the product becomes a consequence of understanding the buyer. (Levitt)</div></details>
+
+  <details class="q"><summary><span class="type">Apply</span>A DVD-rental chain is dying. Diagnose it with marketing myopia and prescribe the fix.</summary>
+    <div class="ans">Myopia: it defined itself as the "<em>DVD-rental</em> business" (product) rather than the "<strong>home entertainment / convenient access to movies</strong>" business (need). It saw streaming as a threat, not an opportunity. Fix: redefine the business around the customer need and embrace the substitute — exactly the railroad→transportation, Hollywood→entertainment move.</div></details>
+
+  <details class="q"><summary><span class="type">Integrate</span>Walk the 5-step marketing process for a new campus coffee brand, and mark where value is created vs captured.</summary>
+    <div class="ans">1) Understand students' needs (cheap, fast, a place to study) — <em>create</em>. 2) Strategy: target budget-conscious students, position as "quality coffee at a student price." 3) Program (4 Ps): the drinks, pricing, on-campus location, socials. 4) Build relationships: loyalty card, consistent quality → satisfaction &amp; delight. 5) <strong>Capture</strong>: repeat sales, profit, word-of-mouth &amp; loyalty (customer equity). Steps 1–4 create value; step 5 captures it.</div></details>
+
+  <details class="q"><summary><span class="type">Calc</span>Out of 200 survey responses: 110 promoters, 50 passives, 40 detractors. NPS?</summary>
+    <div class="ans">% Promoters = 110/200 = 55%. % Detractors = 40/200 = 20%. <strong>NPS = 55 − 20 = +35</strong> (passives are ignored in the formula). +35 sits in the "strong loyalty / good customer experience" band.</div></details>
+
+  <div class="callout take"><span class="h">✅ Unit I in one breath</span>Marketing satisfies customer needs profitably by <strong>creating value</strong> (understand → strategy → mix → relationships) and <strong>capturing value</strong> back (sales, loyalty, NPS). Define your business by the <em>need</em>, not the product — or you go myopic.</div>
+  <div class="callout global"><span class="h">🌍 Reading-quiz priority</span>The single highest-yield item here is <strong>Marketing Myopia</strong> (it's your assigned Levitt reading and the professor flags it on the "product concept" slide). Make sure you can state the thesis, the railroad/Hollywood examples, and the selling-vs-marketing distinction cold.</div>
+</section>
+
+<!-- ================= UNIT II ================= -->
+<section class="panel" id="u2">
+  <div class="banner">
+    <div class="lbl">Unit II · Marketing &amp; Strategy · 11/08 &amp; 14/08 2026</div>
+    <h2>Strategy flows top-down — corporate strategy sets the frame, marketing strategy delivers it — and it must start from the customer.</h2>
+    <p>Unit I asked "what is marketing?" Unit II asks "how does a company decide where to compete and how to grow?" The tools here — portfolio matrices, environment scans, resource analysis, and segmentation — are the exam's bread and butter: most are "name the parts, then apply them."</p>
+  </div>
+
+  <!-- 1. Strategic planning -->
+  <h2 class="sec">1 · Strategic planning &amp; marketing's role</h2>
+  <p class="sub">Where marketing sits inside the company's bigger plan.</p>
+  <div class="card">
+    <p><strong>Strategic planning</strong> = "developing and maintaining a <strong>strategic fit</strong> between the organization's goals and capabilities and its changing marketing opportunities." It sets the stage for all other planning in the firm.</p>
+    <p>The chain: <strong>Corporate strategy → Marketing strategy</strong>. Corporate strategy guides marketing and must be <em>customer-focused</em>.</p>
+  </div>
+
+  <!-- 2. Mission/vision/values/objectives -->
+  <h2 class="sec">2 · Mission · Values · Objectives</h2>
+  <p class="sub">The top of the strategy pyramid — what the company is and where it's going.</p>
+  <div class="grid">
+    <div class="card"><h4>Mission (WHAT)</h4><p>What the company does, who it serves, how it creates value. Should be clear &amp; concise, inspiring &amp; differentiating, customer-oriented, realistic, long-lasting. <em>Google: "Organize the world's information and make it universally accessible and useful."</em></p></div>
+    <div class="card"><h4>Values (HOW)</h4><p>The fundamental principles guiding behavior, culture &amp; decisions — the firm's ethical identity. Should be authentic, clear/specific, inspiring, permanent, applicable (e.g. respect, integrity, accountability).</p></div>
+    <div class="card"><h4>Objectives</h4><p>Strategic goals for the medium–long term, aligned with mission &amp; vision. Must be <strong>SMART</strong>.</p></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 SMART objectives</span><strong>S</strong>pecific · <strong>M</strong>easurable · <strong>A</strong>chievable · <strong>R</strong>elevant · <strong>T</strong>ime-bound. Example: "Increase net profitability by 15% over the next three years through cost optimization." Any objective question — check it hits all five letters.</div>
+
+  <!-- 3. Business model -->
+  <h2 class="sec">3 · The Business Model</h2>
+  <p class="sub">A company's chosen way of doing business — its system for creating, delivering &amp; capturing value.</p>
+  <div class="grid">
+    <div class="card"><h4>WHO — Markets</h4><p>Customer segments &amp; their individual needs. <em>(e.g. low-income people, micro-entrepreneurs, rural women.)</em></p></div>
+    <div class="card"><h4>WHAT — Value created</h4><p>Products, services, solutions &amp; experiences delivered. <em>(e.g. collateral-free microcredit, economic empowerment.)</em></p></div>
+    <div class="card"><h4>HOW — Value delivered &amp; captured</h4><p>The system that makes it work &amp; makes money. <em>(e.g. solidarity groups, local offices, financial education.)</em></p></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 Same verbs as Unit I</span>A business model <strong>creates, delivers, and captures value</strong> — the exact create/capture logic from Unit I, now at company level.</div>
+
+  <!-- 4. BCG -->
+  <h2 class="sec">4 · Business Portfolio → the Boston Consulting Group (BCG) Matrix</h2>
+  <p class="sub">The <strong>business portfolio</strong> = the collection of businesses/products that make up the company. The <strong>BCG</strong> matrix helps prioritize resources across strategic business units (SBUs, called SAUs in the deck): where to invest, divest, or abandon.</p>
+  <p class="sub" style="margin-bottom:8px"><strong>Axes:</strong> vertical = market growth rate · horizontal = (relative) market share.</p>
+  <div class="grid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="card" style="border-top:3px solid #e8974f"><h4>⭐ Star</h4><p><em>High growth · high share.</em> Becoming profitable on entry; rising sales &amp; profit but needs heavy investment to hold position.</p></div>
+    <div class="card" style="border-top:3px solid #8cbcd6"><h4>❓ Question mark</h4><p><em>High growth · low share.</em> Just introduced, innovative, but low sales so far. Needs a decision: invest to grow or drop.</p></div>
+    <div class="card" style="border-top:3px solid #83c497"><h4>🐄 Cash Cow</h4><p><em>Low growth · high share.</em> Established, won't grow further, but stable sales — funds the rest.</p></div>
+    <div class="card" style="border-top:3px solid #d0685a"><h4>🐕 Dog</h4><p><em>Low growth · low share.</em> Final phase of life cycle; growth &amp; share have declined.</p></div>
+  </div>
+  <div class="callout trap"><span class="h">⚠️ BCG limitations (often asked alongside advantages)</span>It uses <em>only two variables</em> (growth &amp; share); some units fall awkwardly in the middle; and it ignores <strong>synergies</strong> — a "dog" might still support a competitive advantage for other products. Advantages: gives a portfolio overview, guides investment focus, and is a starting point for deeper analysis.</div>
+
+  <!-- 5. Ansoff -->
+  <h2 class="sec">5 · Growth Strategies → the Ansoff Matrix</h2>
+  <p class="sub">Identifies growth options along two axes: <strong>products</strong> (existing/new) × <strong>markets</strong> (existing/new). Risk rises the further you move from what you already have.</p>
+  <div class="grid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="card"><h4>Market Penetration <span class="small">(existing product · existing market)</span></h4><p>Sell more of what you have to who you have. Advertising, loyalty programs, promotions, sales pushes, buying a competitor. <em>Lowest risk.</em></p></div>
+    <div class="card"><h4>Product Development <span class="small">(new product · existing market)</span></h4><p>New products for current customers. New variants, related products/services, expanded service scope.</p></div>
+    <div class="card"><h4>Market Development <span class="small">(existing product · new market)</span></h4><p>Current products to new markets. New customer types, new channels/omnichannel, new segmentation variables.</p></div>
+    <div class="card"><h4>Diversification <span class="small">(new product · new market)</span></h4><p>New products <em>and</em> new markets. Research-heavy; for competitive growing/mature industries. <em>Highest risk.</em></p></div>
+  </div>
+  <div class="callout trap"><span class="h">⚠️ Ansoff strength vs limitation</span><strong>Strength:</strong> simple, common-sense way to structure expansion options. <strong>Limitation:</strong> doesn't tell you which option is best, the size of the opportunity, or the risk — though risk generally rises as you move away from existing products/markets.</div>
+
+  <!-- 6. Brand development matrix -->
+  <h2 class="sec">6 · Brand Development Matrix</h2>
+  <p class="sub">Growth by brand vs product category: <strong>product category</strong> (existing/new) × <strong>brand name</strong> (existing/new).</p>
+  <div class="grid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="card"><h4>Line Extension <span class="small">(existing category · existing brand)</span></h4><p>New versions/variants in the same category — new flavors, sizes, formats.</p></div>
+    <div class="card"><h4>Brand Extension <span class="small">(new category · existing brand)</span></h4><p>Use an existing brand to enter new product categories.</p></div>
+    <div class="card"><h4>Multi-brand <span class="small">(existing category · new brand)</span></h4><p>Several brands in the same category to capture different segments.</p></div>
+    <div class="card"><h4>New Brand Development <span class="small">(new category · new brand)</span></h4><p>New brands in new categories to exploit new niches.</p></div>
+  </div>
+
+  <!-- 7. Corporate vs marketing strategy -->
+  <h2 class="sec">7 · Corporate vs. Marketing Strategy</h2>
+  <div class="grid">
+    <div class="card"><h4>Corporate strategy</h4><p>Guides the marketing strategy; must be customer-focused. Sets the direction for the whole firm.</p></div>
+    <div class="card"><h4>Marketing strategy</h4><p>"The marketing logic by which the company hopes to create customer value and achieve profitable customer relationships." Articulates the value proposition: goals, target market, buyer personas, competitors, value. Cycle: Objectives → Planning → Execution → Analysis, around the BRAND.</p></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 Marketing objectives = SMART too</span>e.g. "Increase Instagram followers from 10,000 to 12,000 (+20%) and engagement +15% within 6 months." Same five SMART letters as corporate objectives, but scoped to marketing activity.</div>
+
+  <!-- 8. Marketing environment -->
+  <h2 class="sec">8 · The Marketing Environment: Macro vs Micro</h2>
+  <p class="sub">Kotler &amp; Armstrong split the forces around the firm into two rings.</p>
+  <div class="grid">
+    <div class="card" style="border-top:3px solid #e8974f"><h4>Macro-environment — PESTEL</h4><p>Broad forces the firm can't control: <strong>P</strong>olitical · <strong>E</strong>conomic · <strong>S</strong>ocial · <strong>T</strong>echnological · <strong>E</strong>cological · <strong>L</strong>egal.</p></div>
+    <div class="card" style="border-top:3px solid #83c497"><h4>Micro-environment</h4><p>Close actors the firm interacts with: the <strong>Company</strong>, Suppliers, Customers, Intermediaries, Competitors, and Publics.</p></div>
+  </div>
+  <div class="callout trap"><span class="h">⚠️ Don't mix the two rings</span><strong>PESTEL = macro</strong> (uncontrollable, society-wide). <strong>Company/suppliers/customers/intermediaries/competitors/publics = micro</strong> (close, interactive). A classic sorting question.</div>
+
+  <!-- 9. Micro stakeholders -->
+  <h2 class="sec">9 · Micro-environment actors</h2>
+  <div class="grid">
+    <div class="card"><h4>Company</h4><p>Senior management, functional areas, employees — internal alignment.</p></div>
+    <div class="card"><h4>Suppliers</h4><p>Provide inputs, products &amp; services.</p></div>
+    <div class="card"><h4>Intermediaries</h4><p>Distributors, service companies, financial institutions — help reach the market.</p></div>
+    <div class="card"><h4>Customers</h4><p>Consumers &amp; businesses; current &amp; potential.</p></div>
+    <div class="card"><h4>Competitors</h4><p>Direct &amp; indirect rivals for the same customers.</p></div>
+    <div class="card"><h4>Publics</h4><p>Governments/authorities, media, citizen action groups, local communities, society.</p></div>
+  </div>
+
+  <!-- 10. VRIO -->
+  <h2 class="sec">10 · VRIO — sources of sustained advantage</h2>
+  <p class="sub">A tool to assess whether a resource/capability gives a <strong>sustained</strong> competitive advantage. All four must hold.</p>
+  <div class="card" style="padding:8px 18px">
+    <div class="trackrow"><span class="num">V</span><div class="txt"><strong>Value</strong><span>Does it let the firm exploit opportunities or defend against threats (improve efficiency/effectiveness)?</span></div></div>
+    <div class="trackrow"><span class="num">R</span><div class="txt"><strong>Rarity</strong><span>Is it controlled by only a few firms? Scarce enough to give an edge?</span></div></div>
+    <div class="trackrow"><span class="num">I</span><div class="txt"><strong>Imitability</strong><span>Is it costly for others to imitate? Valuable + rare but easy to copy = no sustained advantage.</span></div></div>
+    <div class="trackrow"><span class="num">O</span><div class="txt"><strong>Organization</strong><span>Is the firm organized to actually exploit it? Even a V-R-I resource needs the structure to use it.</span></div></div>
+  </div>
+
+  <!-- 11. Customer centricity -->
+  <h2 class="sec">11 · Customer Centricity</h2>
+  <p class="sub">Putting the customer's perception of value at the center — the starting point for everything the organization does.</p>
+  <div class="card">
+    <p><strong>Outside-in, not inside-out:</strong> strategy starts from the customer (outside-in), not from the company (inside-out). This creates superior value for the customer, captured by the company.</p>
+    <p>The advantage comes from maximizing <strong>customer equity</strong> = the sum of individual <strong>customer lifetime values (CLV)</strong>. Not all customers are equal — the best are less price-sensitive, recommend you, forgive mistakes, and stay long-term.</p>
+  </div>
+  <div class="callout applied"><span class="h">📌 How to tell if a company is customer-centric — 4 lenses</span><strong>Culture</strong> (is everyone a "fan" of customers?) · <strong>Structure</strong> (sales organized by customer segments? a Chief Customer Officer?) · <strong>Processes</strong> (customer-level plans, customer relationship management (CRM) &amp; insights, co-created solutions?) · <strong>Metrics</strong> (measure profitability, CLV, satisfaction, loyalty, experience?).</div>
+
+  <!-- 12. STP -->
+  <h2 class="sec">12 · STP — Segmentation, Targeting, Positioning</h2>
+  <p class="sub">The heart of a customer-driven marketing strategy (this becomes Units IV &amp; V in depth).</p>
+  <div class="card" style="padding:8px 18px">
+    <div class="trackrow"><span class="num">S</span><div class="txt"><strong>Segmentation</strong><span>Divide the market into groups with different characteristics (needs, behaviors) that respond similarly to marketing actions.</span></div></div>
+    <div class="trackrow"><span class="num">T</span><div class="txt"><strong>Targeting</strong><span>Evaluate each segment's attractiveness &amp; your competitive position, then select which to serve and invest in.</span></div></div>
+    <div class="trackrow"><span class="num">P</span><div class="txt"><strong>Positioning</strong><span>Define the place you want the brand to hold in target customers' minds &amp; hearts, relative to competitors. Differentiate the value proposition per segment.</span></div></div>
+  </div>
+
+  <!-- 13. Marketing mix -->
+  <h2 class="sec">13 · The Marketing Mix — 4 Ps &amp; 4 As</h2>
+  <p class="sub">"The set of tactical marketing tools the firm blends to produce the response it wants in the target market." Each P pairs with a customer-side A.</p>
+  <div class="grid">
+    <div class="card"><h4>Product → Acceptability</h4><p>What you offer, and whether it meets/exceeds what the customer will accept.</p></div>
+    <div class="card"><h4>Price → Affordability</h4><p>What you charge, and whether the customer can &amp; will pay it.</p></div>
+    <div class="card"><h4>Place → Accessibility</h4><p>Where/how it's available, and how easily the customer can get it.</p></div>
+    <div class="card"><h4>Promotion → Awareness</h4><p>How you communicate, and whether the customer knows about it.</p></div>
+  </div>
+  <div class="callout applied"><span class="h">📌 The 4 As flip the mix to the customer's view</span>The 4 Ps are the firm's levers; the 4 As (Acceptability, Affordability, Accessibility, Awareness) are how the customer experiences them — the same outside-in logic as customer centricity.</div>
+
+  <!-- 14. SWOT + implementation -->
+  <h2 class="sec">14 · Managing the effort: situation analysis, implementation &amp; control</h2>
+  <div class="grid">
+    <div class="card"><h4>SWOT</h4><p><strong>Internal:</strong> Strengths &amp; Weaknesses. <strong>External:</strong> Opportunities &amp; Threats. Frames the situation before setting the plan.</p></div>
+    <div class="card"><h4>Marketing implementation</h4><p>Turning strategies &amp; plans into <em>actions</em> that accomplish the strategic marketing objectives.</p></div>
+    <div class="card"><h4>Marketing control</h4><p>Measuring &amp; evaluating results, then taking corrective action so objectives are met. "Ideas are easy. It's the execution that's hard."</p></div>
+  </div>
+  <div class="callout trap"><span class="h">⚠️ SWOT internal vs external</span>Strengths &amp; Weaknesses are <strong>internal</strong> (about the firm); Opportunities &amp; Threats are <strong>external</strong> (about the environment). Mixing these up is the most common SWOT error.</div>
+
+  <!-- Practice -->
+  <h2 class="sec">✍️ Practice — produce first, then open</h2>
+  <p class="sub">Answer before expanding. These mirror the "name the parts &amp; apply" questions this unit invites.</p>
+
+  <details class="q"><summary><span class="type">Recall</span>Name the 4 BCG quadrants with both axes.</summary>
+    <div class="ans">Axes: market <strong>growth</strong> (vertical) × market <strong>share</strong> (horizontal). <strong>Star</strong> = high growth/high share · <strong>Question mark</strong> = high growth/low share · <strong>Cash Cow</strong> = low growth/high share · <strong>Dog</strong> = low growth/low share.</div></details>
+
+  <details class="q"><summary><span class="type">Apply</span>A snack brand launches a spicy version of its existing chips for its current market. Which Ansoff strategy?</summary>
+    <div class="ans"><strong>Product Development</strong> — a new product (variant) in an existing market. If it instead sold the current chips in a new country, that's Market Development; both new = Diversification; more of the same to the same = Market Penetration.</div></details>
+
+  <details class="q"><summary><span class="type">Compare</span>Sort into macro vs micro: competitors, inflation, new privacy law, suppliers, an aging population.</summary>
+    <div class="ans"><strong>Macro (PESTEL):</strong> inflation (Economic), new privacy law (Legal), aging population (Social). <strong>Micro:</strong> competitors, suppliers.</div></details>
+
+  <details class="q"><summary><span class="type">Apply</span>A firm has a valuable, rare capability that rivals can cheaply copy. VRIO verdict?</summary>
+    <div class="ans">No <strong>sustained</strong> advantage. It passes Value &amp; Rarity but fails <strong>Imitability</strong> — easy imitation erodes the edge. All four (V, R, I, O) must hold for a sustained competitive advantage.</div></details>
+
+  <details class="q"><summary><span class="type">Recall</span>Give the 4 lenses for judging customer centricity, and pair each P with its A.</summary>
+    <div class="ans">Lenses: <strong>Culture · Structure · Processes · Metrics</strong>. Mix: Product–<strong>Acceptability</strong>, Price–<strong>Affordability</strong>, Place–<strong>Accessibility</strong>, Promotion–<strong>Awareness</strong>.</div></details>
+
+  <div class="callout take"><span class="h">✅ Unit II in one breath</span>Corporate strategy (mission, values, SMART objectives, portfolio via BCG/Ansoff/Brand matrices) sets the frame; marketing strategy delivers it through <strong>STP + the 4 Ps</strong>, scanning <strong>PESTEL (macro)</strong> and the <strong>micro-environment</strong>, building advantage (<strong>VRIO</strong>) — all <strong>outside-in / customer-centric</strong>, then implemented &amp; controlled.</div>
+  <div class="callout global"><span class="h">🌍 Professor's stated takeaways</span>From the final slide: (1) <strong>customer-centricity</strong> puts the customer at the center and is judged on culture, structure, processes &amp; metrics; (2) the <strong>BCG, Ansoff &amp; Brand Development matrices</strong> represent different growth strategies. Expect these two to anchor the assessment.</div>
+</section>
+
+<!-- ================= SUMMARY / LAST READ ================= -->
+<section class="panel" id="summary">
+  <div class="banner">
+    <div class="lbl">Summary · Last read</div>
+    <h2>The final pass — everything essential on one screen.</h2>
+    <p>Use this for your last read before a quiz or test. If you can produce each line below from memory, you're ready. Your notes at the bottom save automatically.</p>
+  </div>
+
+  <div class="callout take"><span class="h">✅ Unit I in one breath</span>Marketing satisfies customer needs <strong>profitably</strong> by <strong>creating value</strong> (understand → strategy → mix → relationships) and <strong>capturing value</strong> back (sales, loyalty, NPS). Define your business by the <em>need</em>, not the product — or you go myopic.</div>
+  <div class="callout take"><span class="h">✅ Unit II in one breath</span><strong>Corporate strategy</strong> (mission, values, SMART objectives, portfolio via BCG/Ansoff/Brand matrices) sets the frame; <strong>marketing strategy</strong> delivers it through <strong>STP + the 4 Ps</strong>, scanning <strong>PESTEL (macro)</strong> &amp; the <strong>micro-environment</strong>, building advantage via <strong>VRIO</strong> — all <strong>outside-in / customer-centric</strong>, then implemented &amp; controlled.</div>
+
+  <h2 class="sec">Unit I — must-know lists</h2>
+  <p class="sub">These are the "name all N" items graders reward. Produce them exactly.</p>
+  <div class="grid">
+    <div class="card"><h4>Any marketing definition = 4 elements</h4><p>Value · customer needs · exchange/relationship · a company goal (profit).</p></div>
+    <div class="card"><h4>Selling vs. Marketing</h4><p>Selling = seller's need → convert product to cash. Marketing = buyer's need → product is a consequence.</p></div>
+    <div class="card"><h4>Needs → Wants → Demand</h4><p>Need (exists) → Want (shaped by culture) → Demand (want + buying power). Value = benefits vs cost. Marketers shape <em>wants</em>, not needs.</p></div>
+    <div class="card"><h4>Evolution 1.0 → 6.0</h4><p>Product · Consumer · Sustainable · Digital · AI · Community.</p></div>
+    <div class="card"><h4>The 5 concepts (orientations)</h4><p>1 Production (cheap/available) · 2 Product (quality → myopia risk) · 3 Selling (unsought goods) · 4 Marketing (right products for customers) · 5 Societal (people·planet·profit).</p></div>
+    <div class="card"><h4>Marketing Myopia — the move</h4><p>Define by <strong>need</strong>, not product: railroads→transportation, Hollywood→entertainment, oil→energy. Ford = brilliant + senseless marketer.</p></div>
+    <div class="card"><h4>Marketing Process — 5 steps</h4><p>Understand → Strategy → Program (4 Ps) → Relationships → Capture. Steps 1–4 <strong>create</strong> value; step 5 <strong>captures</strong> it.</p></div>
+    <div class="card"><h4>Holistic Marketing — 5 dimensions</h4><p>Integrated · Internal · Relationship · Performance · Responsible. Key word: <strong>consistency</strong>.</p></div>
+    <div class="card"><h4>Satisfaction → Loyalty → NPS</h4><p>Satisfaction = performance vs expectations. NPS = % Promoters − % Detractors. Promoters 9–10 · Passives 7–8 · Detractors 0–6.</p></div>
+    <div class="card"><h4>Challenges</h4><p>Uncertain economy · digital/real-time · globalization · non-profit marketing · sustainable (social responsibility).</p></div>
+  </div>
+
+  <h2 class="sec">Unit II — must-know lists</h2>
+  <p class="sub">Matrix- and framework-heavy — most of these are "name the parts, then apply."</p>
+  <div class="grid">
+    <div class="card"><h4>SMART objectives</h4><p><strong>S</strong>pecific · <strong>M</strong>easurable · <strong>A</strong>chievable · <strong>R</strong>elevant · <strong>T</strong>ime-bound.</p></div>
+    <div class="card"><h4>Business model</h4><p>WHO (markets/segments) · WHAT (products/value) · HOW (deliver &amp; capture). Creates → delivers → captures value.</p></div>
+    <div class="card"><h4>BCG matrix (growth × share)</h4><p>⭐ Star (hi/hi) · ❓ Question mark (hi growth/lo share) · 🐄 Cash Cow (lo growth/hi share) · 🐕 Dog (lo/lo).</p></div>
+    <div class="card"><h4>Ansoff matrix (product × market)</h4><p>Market Penetration (old/old) · Product Development (new/old) · Market Development (old/new) · Diversification (new/new — riskiest).</p></div>
+    <div class="card"><h4>Brand Development matrix</h4><p>Line Extension (old cat/old brand) · Brand Extension (new cat/old brand) · Multi-brand (old cat/new brand) · New Brand (new cat/new brand).</p></div>
+    <div class="card"><h4>PESTEL (macro)</h4><p><strong>P</strong>olitical · <strong>E</strong>conomic · <strong>S</strong>ocial · <strong>T</strong>echnological · <strong>E</strong>cological · <strong>L</strong>egal.</p></div>
+    <div class="card"><h4>Micro-environment</h4><p>Company · Suppliers · Customers · Intermediaries · Competitors · Publics.</p></div>
+    <div class="card"><h4>VRIO</h4><p><strong>V</strong>alue · <strong>R</strong>arity · <strong>I</strong>mitability · <strong>O</strong>rganization. All four → sustained advantage.</p></div>
+    <div class="card"><h4>Customer centricity — 4 lenses</h4><p>Culture · Structure · Processes · Metrics. Outside-in; maximize customer equity (Σ of CLV).</p></div>
+    <div class="card"><h4>STP</h4><p>Segmentation → Targeting → Positioning.</p></div>
+    <div class="card"><h4>Marketing mix — 4 Ps ↔ 4 As</h4><p>Product–Acceptability · Price–Affordability · Place–Accessibility · Promotion–Awareness.</p></div>
+    <div class="card"><h4>SWOT</h4><p>Internal: Strengths · Weaknesses. External: Opportunities · Threats.</p></div>
+  </div>
+
+  <div class="callout global"><span class="h">🌍 If you only revise one thing per unit</span><strong>Unit I:</strong> Marketing Myopia — thesis, railroad/Hollywood examples, selling-vs-marketing (your assigned Levitt reading). <strong>Unit II:</strong> the professor's takeaways — <em>customer-centricity</em> (culture/structure/processes/metrics) and the three growth matrices (<em>BCG, Ansoff, Brand Development</em>).</div>
+
+  <h2 class="sec">📝 My notes &amp; where I left off</h2>
+  <p class="sub">Type freely — saves to this page automatically. Use it to mark your last read, jot doubts, or list what to re-check with Claude.</p>
+  <textarea id="mynotes" placeholder="e.g. Last read: up to §6 Marketing Myopia. Doubt: difference between Passives and Detractors in NPS. Ask Claude to quiz me on the 5 concepts."
+    style="width:100%;min-height:180px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:.97rem;color:var(--ink);line-height:1.6;
+    box-shadow:var(--shadow);resize:vertical"></textarea>
+  <p class="small" id="notestatus" style="margin-top:6px">&nbsp;</p>
+</section>
+
+<!-- ============ CHEAT SHEET (replace this whole block each evaluation) START ============ -->
+<section class="panel" id="cheat">
+  <div class="banner">
+    <div class="lbl">Cheat Sheet · rebuilt per evaluation</div>
+    <h2>Reading Quiz — "Marketing Myopia" (Levitt)</h2>
+    <p>Your last-hour read for the myopia reading quiz. Built from the reading in your folder, and shaped to match how this professor asks (based on a sample pauta from the same course). Content is all Levitt — verified against your PDF.</p>
+  </div>
+
+  <div class="callout applied"><span class="h">📌 How this professor asks (from the sample pauta)</span>Short-answer, ~5 pts each. The pattern: <em>"Indicate what X is and name an example,"</em> or <em>"How/why does Levitt…?"</em>. What earns full marks: the <strong>correct concept + a specific named example or a short quote</strong>. Rule of thumb — <strong>name it, then explain it</strong> in 2–3 sentences. A bare term with no reason loses points.</div>
+
+  <h2 class="sec">The likely questions</h2>
+
+  <div class="card"><h4>① What is marketing myopia? Name an example.</h4>
+    <p>A short-sighted, inward focus on selling the company's <em>product</em> and its own needs, instead of defining the business by the <strong>customer's needs</strong>. Decline is a <strong>failure of management</strong>, not a saturated market. <strong>Example:</strong> Railroads defined themselves as the "railroad business," not the "transportation business," and lost customers to cars, trucks and planes. (Hollywood → "movie" vs "entertainment" works too.)</p></div>
+
+  <div class="card"><h4>② How does Levitt say companies avoid it?</h4>
+    <p>Not tricks or promotion — <strong>leadership and organization</strong>. The whole corporation must act as a <strong>"customer-creating and customer-satisfying organism"</strong>: think of the business not as producing products but as providing <strong>customer-value satisfactions</strong> ("buying customers"). It needs a leader with a vision that produces followers — and in business, the followers are the customers.</p></div>
+
+  <div class="card"><h4>③ Selling vs. marketing (Levitt's distinction)</h4>
+    <p>"<strong>Selling focuses on the needs of the seller, marketing on the needs of the buyer.</strong>" Selling is preoccupied with converting the product into cash; marketing with satisfying the customer's needs — so the product becomes a consequence of the customer, not the starting point.</p></div>
+
+  <div class="card"><h4>④ Product vs. customer orientation — can a firm be both?</h4>
+    <p><strong>Yes — the best are both.</strong> Product excellence isn't the problem; being <em>only</em> product-oriented is. <strong>DuPont &amp; Corning</strong> had top technical/product skill but succeeded because they were <em>also</em> customer-oriented, aiming that know-how at "customer-satisfying uses." Product orientation is the engine; customer orientation is the steering wheel.</p></div>
+
+  <div class="card"><h4>⑤ Why "there is no such thing as a growth industry"?</h4>
+    <p>Because growth is never guaranteed by the product or market — it depends on management staying customer-oriented. Industries that assumed permanent growth (railroads, oil, dry cleaning) declined when they defined themselves too narrowly and let outsiders serve the customer's evolving need.</p></div>
+
+  <div class="card"><h4>⑥ Explain one example in depth (safe pick: Railroads or Oil)</h4>
+    <p><strong>Railroads:</strong> the need for transportation kept <em>growing</em>; railroads suffered because they saw themselves in the "railroad business," not "transportation," so cars/trucks/planes took the customer. <strong>Oil:</strong> assumed "no substitute for gasoline"; should define itself as <strong>energy</strong> — every rescue (heating oil, jet fuel) came from outsiders.</p></div>
+
+  <div class="callout trap"><span class="h">⚠️ Don't cite "drills vs. holes"</span>The "people buy holes, not drills" line is often linked to Levitt but is <strong>not in the 1960 "Marketing Myopia" article</strong> you were assigned. Stick to Railroads, Hollywood, or Oil as named examples.</div>
+
+  <div class="callout take"><span class="h">✅ The one thread that answers almost everything</span><strong>Define the business by the customer NEED, not the product.</strong> Nearly every question here is a variation on that sentence — lead with it, add one named example, and you're at full marks.</div>
+</section>
+<!-- ============ CHEAT SHEET END ============ -->
+
+<footer class="foot">
+  Living Study Hub · built from your Unit I deck &amp; the Levitt reading · updated as the course grows.<br>
+  Progress saves locally in your browser. To reset, clear this page's site data.
+</footer>
+</div>
+
+<script>
+// Tabs
+const tabs=[...document.querySelectorAll('.tab')];
+const panels=[...document.querySelectorAll('.panel')];
+tabs.forEach(t=>{
+  if(t.classList.contains('locked'))return;
+  t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    t.classList.add('active');
+    const id=t.dataset.t;
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+// Progress tracker (persists locally; guarded so it never breaks the page)
+const boxes=[...document.querySelectorAll('input[data-k]')];
+try{
+  const saved=JSON.parse(localStorage.getItem('mkt1_progress')||'{}');
+  boxes.forEach(b=>{ if(saved[b.dataset.k]) b.checked=true; });
+}catch(e){}
+boxes.forEach(b=>b.addEventListener('change',()=>{
+  try{
+    const s={}; boxes.forEach(x=>s[x.dataset.k]=x.checked);
+    localStorage.setItem('mkt1_progress',JSON.stringify(s));
+  }catch(e){}
+}));
+// Notes / last-read (persists locally; guarded)
+const notes=document.getElementById('mynotes');
+const nstat=document.getElementById('notestatus');
+if(notes){
+  try{ notes.value=localStorage.getItem('mkt1_notes')||''; }catch(e){}
+  let tmr;
+  notes.addEventListener('input',()=>{
+    try{
+      localStorage.setItem('mkt1_notes',notes.value);
+      if(nstat){ nstat.textContent='Saved ✓ '+new Date().toLocaleTimeString(); clearTimeout(tmr);
+        tmr=setTimeout(()=>{ if(nstat) nstat.innerHTML='&nbsp;'; },2000); }
+    }catch(e){ if(nstat) nstat.textContent='Could not save in this browser.'; }
+  });
+}
+</script>
+</body>
+</html>
