@@ -162,6 +162,7 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
     <button class="tab" data-t="u1">Unit I · Intro to Marketing<span class="dot"></span></button>
     <button class="tab" data-t="u2">Unit II · Marketing &amp; Strategy<span class="dot"></span></button>
     <button class="tab" data-t="u3">Unit III · Market Behaviour<span class="dot"></span></button>
+    <button class="tab" data-t="gcalc">🧮 Grade Calculator</button>
     <button class="tab" data-t="summary">🌙 Last Read</button>
     <button class="tab" data-t="cheat">🎯 Cheat Sheet</button>
     <button class="tab" data-t="mock">📝 Mock Test</button>
@@ -203,23 +204,7 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
   </div>
   <p class="legend">Attendance: minimum <strong>75%</strong> required — you can miss up to 3 full sessions (6 modules). Class starts 8:30 sharp; no phones; sign the QR only if you're actually there.</p>
 
-  <h2 class="sec">🧮 Grade calculator</h2>
-  <p class="sub">Enter your own grades (1.0–7.0). Weights from the syllabus slide; the worst Group Work and the worst Reading Quiz are dropped automatically. Leave anything blank that you don't have yet.</p>
-  <div class="card" id="gcalc">
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
-      <label class="small">Group Works (15%) — separate grades with spaces<input id="g_gw" type="text" inputmode="decimal" placeholder="e.g. 6.0 5.5 6.5 7.0" class="gin"></label>
-      <label class="small">Reading Quizzes (15%) — separate with spaces<input id="g_rq" type="text" inputmode="decimal" placeholder="e.g. 5.8 6.2 4.9" class="gin"></label>
-      <label class="small">Test 1 (20%)<input id="g_t1" type="text" inputmode="decimal" placeholder="e.g. 5.4" class="gin"></label>
-      <label class="small">Test 2 (20%)<input id="g_t2" type="text" inputmode="decimal" placeholder="e.g. 5.0" class="gin"></label>
-      <label class="small">Final Exam (30%)<input id="g_fx" type="text" inputmode="decimal" placeholder="blank = not taken yet" class="gin"></label>
-    </div>
-    <div id="g_out" style="margin-top:14px;color:var(--ink2);font-size:.95rem"></div>
-    <p class="small" style="margin-top:10px">Rules used: the course passes at a final grade of <strong>3.95</strong> (rounds to 4.0). UDD rule: a Final Exam grade <strong>below 3.0 fails the course</strong> regardless of the average. Decimals with a comma (5,5) work too.</p>
-  </div>
-  <style>
-    .gin{display:block;width:100%;margin-top:4px;background:var(--cream2);border:1px solid var(--line);border-radius:10px;padding:9px 11px;color:var(--ink);font-family:inherit;font-size:.95rem}
-    .gin:focus{outline:2px solid var(--accent);border-color:var(--accent)}
-  </style>
+  <p class="small">To see what's decided and what each pending evaluation needs, open the <strong>🧮 Grade Calculator</strong> tab.</p>
 
   <div class="callout applied"><span class="h">🎯 How this professor grades (from the pautas we've studied)</span>She marks by <strong>ticking off named, enumerated components</strong> — she literally counts the parts of your answer. Full marks need the <strong>correct concept named, broken into labeled parts, each backed by a specific example or fact</strong> (from the article or reading). Her partial credit is explicit: <em>"name at least 2," "3 = a full answer," "2 pts per item."</em> So on every question: <strong>label and number each part, and tie each to a concrete fact.</strong> A numbered/labeled list beats a flowing paragraph, and a bare term with no example or reason loses points.</div>
 
@@ -752,6 +737,36 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
 
   <div class="callout take"><span class="h">✅ Unit III in one breath</span>Buyers (B2C or B2B) move through <strong>need → search → evaluate → decide → post-purchase</strong>, shaped by <strong>cultural/social/personal/psychological/circumstantial</strong> factors and by a <strong>buying centre</strong> of roles (initiator→user + gatekeeper). B2B is more complex, ROI-driven, relationship-long, and evaluated member-by-member with <strong>GRASP</strong>.</div>
   <div class="callout global"><span class="h">🌍 Test 2 focus</span>Test 2 covers <strong>Unit III only</strong> and is <strong>case-based</strong> (a company scenario + applied questions, ~60 pts). Expect: B2B-vs-B2C differences, the 5-step process compared across B2B/B2C, and the power map / buying-centre roles. Drill those three cold.</div>
+</section>
+
+<!-- ================= GRADE CALCULATOR ================= -->
+<section class="panel" id="gcalc">
+  <div class="banner">
+    <div class="lbl">Tool · Grade Calculator</div>
+    <h2>🧮 What's decided, what's left, and what it takes.</h2>
+    <p>Weights from the Unit I syllabus slide. Enter grades on the 1,0–7,0 scale (comma or dot); leave pending evaluations blank. Everything recalculates live and is saved only in this browser.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:10px">Your grades</h3>
+    <div id="gc_inputs" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px"></div>
+    <p class="small" style="margin-top:10px">Group Works and Reading Quizzes are entered as one averaged grade each (the course erases the worst grade of each before averaging).</p>
+    <h3 style="margin:16px 0 8px">Target</h3>
+    <div id="gc_chips" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"></div>
+    <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+      <button type="button" id="gc_clear" class="tab" style="cursor:pointer">Clear all</button>
+    </div>
+  </div>
+
+  <h2 class="sec">Where things stand</h2>
+  <div id="gc_status" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))"></div>
+  <div id="gc_need"></div>
+
+  <h2 class="sec">Scenarios that just reach the target</h2>
+  <p class="sub">Each row is a combination of grades on the pending evaluations that reaches the target with nothing to spare: lowering any grade by 0,1 would miss it. Grades from 3,0 to 6,9; at most one grade in the 3s and one in the 6s per row.</p>
+  <div id="gc_table"></div>
+
+  <div class="callout take"><span class="h">✅ Rules this calculator applies</span>Final grade = 15% Group Works + 15% Reading Quizzes + 20% Test 1 + 20% Test 2 + 30% Final Exam. The course passes at <strong>3,95</strong> (rounds to 4,0). <strong>A Final Exam grade below 3,0 fails the course</strong> regardless of the average (UDD rule). This course has no exam exemption.</div>
 </section>
 
 <!-- ================= SUMMARY / LAST READ ================= -->
@@ -1353,40 +1368,166 @@ if(notes){
     }catch(e){ if(nstat) nstat.textContent='Could not save in this browser.'; }
   });
 }
-// Grade calculator (guarded; never breaks the page)
-(function(){
-  const ids=['g_gw','g_rq','g_t1','g_t2','g_fx'];
-  const els=ids.map(i=>document.getElementById(i));
-  const out=document.getElementById('g_out');
-  if(!out||els.some(e=>!e))return;
-  const nums=s=>(s||'').replace(/,/g,'.').split(/[\s;]+/).map(parseFloat).filter(x=>!isNaN(x)&&x>=1&&x<=7);
-  const one=s=>{const a=nums(s);return a.length?a[0]:null};
-  const dropWorst=a=>{if(!a.length)return null;if(a.length===1)return a[0];const b=[...a].sort((x,y)=>x-y).slice(1);return b.reduce((s,x)=>s+x,0)/b.length};
-  const f=x=>x.toFixed(2);
-  function calc(){
-    const v=els.map(e=>e.value);
-    try{localStorage.setItem('mkt1_grades',JSON.stringify(v))}catch(e){}
-    const parts=[['Group Works',dropWorst(nums(v[0])),.15],['Reading Quizzes',dropWorst(nums(v[1])),.15],['Test 1',one(v[2]),.20],['Test 2',one(v[3]),.20],['Final Exam',one(v[4]),.30]];
-    const have=parts.filter(p=>p[1]!==null);
-    if(!have.length){out.innerHTML='Enter at least one grade.';return;}
-    let html='<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px">'+parts.map(p=>'<span class="pill">'+p[0]+': <strong>'+(p[1]===null?'—':f(p[1]))+'</strong></span>').join('')+'</div>';
-    const wsum=have.reduce((s,p)=>s+p[2],0), acc=have.reduce((s,p)=>s+p[1]*p[2],0);
-    html+='<p style="margin:4px 0"><strong>Average so far</strong> (over the '+Math.round(wsum*100)+'% graded): <strong style="color:var(--ink)">'+f(acc/wsum)+'</strong></p>';
-    const fx=parts[4][1], pre=parts.slice(0,4);
-    if(fx!==null&&pre.every(p=>p[1]!==null)){
-      const tot=acc, pass=tot>=3.95&&fx>=3.0;
-      html+='<p style="margin:4px 0"><strong>Final course grade:</strong> <strong style="color:var(--ink)">'+f(tot)+'</strong> → '+(pass?'<span class="statusdone">passes</span>':'<span style="color:var(--yellow);font-weight:600">does not pass</span>'+(fx<3?' (Final Exam below 3.0)':''))+'</p>';
-    }else if(fx===null&&pre.every(p=>p[1]!==null)){
-      const need=(3.95-acc)/.30, req=Math.max(need,3.0);
-      html+='<p style="margin:4px 0"><strong>Final Exam grade needed to pass:</strong> <strong style="color:var(--ink)">'+(req>7?'above 7.0 — not reachable':f(Math.max(req,1)))+'</strong>'+(need<3?' <span class="small">(the 3.0 exam minimum is what binds)</span>':'')+'</p>';
-    }else{
-      html+='<p class="small" style="margin:4px 0">Fill in every component except the Final to see the Final Exam grade you need.</p>';
+// ===== Grade calculator core (pure functions; integer math: grades in hundredths x weights in %) =====
+const GC_CFG={
+  comps:[
+    {id:'gw',name:'Group Works (your average)',w:15},
+    {id:'rq',name:'Reading Quizzes (your average)',w:15},
+    {id:'t1',name:'Test 1',w:20},
+    {id:'t2',name:'Test 2',w:20},
+    {id:'fx',name:'Final Exam',w:30,exam:true}
+  ],
+  examFloor:300,   // 3,0
+  pass:395,        // 3,95 -> 4,0
+  targets:[395,500,545,600]
+};
+const GCcore={
+  parse(s){ // -> hundredths or null
+    if(s==null)return null; s=String(s).trim().replace(',','.'); if(!s)return null;
+    if(!/^\d(\.\d{1,2})?$/.test(s))return NaN;
+    const h=Math.round(parseFloat(s)*100); return (h>=100&&h<=700)?h:NaN;
+  },
+  fmt2(h){return (h/100).toFixed(2).replace('.',',')},
+  fmt1(t){return (t/10).toFixed(1).replace('.',',')},
+  state(cfg,vals){ // vals: hundredths|null per comp
+    let U=0,wDone=0; const pend=[];
+    cfg.comps.forEach((c,i)=>{ if(vals[i]==null) pend.push(i); else {U+=vals[i]*c.w; wDone+=c.w;} });
+    return {U,wDone,wOpen:100-wDone,pend};
+  },
+  evenSplit(cfg,vals,T){ // T in hundredths; returns {type,..}
+    const st=this.state(cfg,vals), need=T*100-st.U;
+    if(!st.pend.length) return {type:'done'};
+    const ex=st.pend.find(i=>cfg.comps[i].exam);
+    // minimum possible: exam at floor, others at 1,0
+    let minU=st.U; st.pend.forEach(i=>minU+=(cfg.comps[i].exam?cfg.examFloor:100)*cfg.comps[i].w);
+    if(minU>=T*100) return {type:'secured'};
+    let x=Math.ceil(need/st.wOpen/10)*10; // tenths, as hundredths
+    if(x>700) return {type:'unreachable'};
+    if(ex!==undefined && x<cfg.examFloor){
+      const others=st.pend.filter(i=>i!==ex), wO=others.reduce((s,i)=>s+cfg.comps[i].w,0);
+      const rest=need-cfg.examFloor*cfg.comps[ex].w;
+      let y=wO?Math.max(100,Math.ceil(rest/wO/10)*10):null;
+      return {type:'floor',exam:cfg.examFloor,others:y,hasOthers:wO>0};
     }
-    out.innerHTML=html;
+    return {type:'even',x:Math.max(x,100)};
+  },
+  scenarios(cfg,vals,T,maxRows){
+    const st=this.state(cfg,vals), P=st.pend; if(!P.length) return {rows:[],cols:[],relaxed:false};
+    const w=P.map(i=>cfg.comps[i].w), k=P.length, TT=T*100;
+    if(st.U+300*w.reduce((a,b)=>a+b,0)>=TT) return {rows:[],cols:P,relaxed:false,atFloor:true};
+    const grid=[]; for(let g=300;g<=690;g+=10)grid.push(g);
+    const run=(strict)=>{
+      const out=[], cur=new Array(k);
+      const rec=(d,partial,n3,n6)=>{
+        if(d===k-1){
+          let g=Math.ceil((TT-partial)/w[d]/10)*10; if(g<300)g=300; if(g>690)return;
+          const t3=n3+(g<400?1:0), t6=n6+(g>=600?1:0);
+          if(strict&&(t3>1||t6>1))return;
+          cur[d]=g; const tot=partial+g*w[d];
+          for(let j=0;j<k;j++){ if(cur[j]>300 && tot-10*w[j]>=TT) return; }
+          out.push(cur.slice()); return;
+        }
+        for(const g of grid){
+          const a3=n3+(g<400?1:0), a6=n6+(g>=600?1:0);
+          if(strict&&(a3>1||a6>1))continue;
+          cur[d]=g; rec(d+1,partial+g*w[d],a3,a6);
+        }
+      };
+      rec(0,st.U,0,0); return out;
+    };
+    let cand=run(true), relaxed=false;
+    if(!cand.length){ cand=run(false); relaxed=cand.length>0; }
+    if(cand.length>60000){ const s=Math.ceil(cand.length/60000); cand=cand.filter((_,i)=>i%s===0); }
+    const spread=r=>Math.max(...r)-Math.min(...r);
+    const mid=r=>r.every(g=>g>=400&&g<600);
+    const dist=(a,b)=>{let s=0;for(let i=0;i<a.length;i++)s+=Math.abs(a[i]-b[i]);return s};
+    const pick=(pool,n,sel)=>{
+      const chosen=[];
+      if(!sel.length&&pool.length){ let b=pool[0]; for(const r of pool) if(spread(r)<spread(b))b=r; chosen.push(b); }
+      while(chosen.length<n){
+        let best=null,bd=-1; const ref=sel.concat(chosen);
+        for(const r of pool){ if(chosen.includes(r))continue; let m=Infinity; for(const s of ref){const d=dist(r,s); if(d<m)m=d;} if(m>bd){bd=m;best=r;} }
+        if(!best||bd===0)break; chosen.push(best);
+      }
+      return chosen;
+    };
+    const A=cand.filter(mid), B=cand.filter(r=>!mid(r));
+    maxRows=maxRows||12;
+    let sel=pick(A,Math.min(8,A.length),[]);
+    sel=sel.concat(pick(B,Math.min(maxRows-sel.length,B.length),sel));
+    if(sel.length<maxRows) sel=sel.concat(pick(A.filter(r=>!sel.includes(r)),maxRows-sel.length,sel));
+    sel.sort((a,b)=>spread(a)-spread(b)||a.join().localeCompare(b.join()));
+    return {rows:sel,cols:P,relaxed,count:cand.length};
   }
-  try{const s=JSON.parse(localStorage.getItem('mkt1_grades')||'null');if(Array.isArray(s))s.forEach((x,i)=>{if(els[i])els[i].value=x||''})}catch(e){}
-  els.forEach(e=>e.addEventListener('input',calc));
+};
+// ===== Grade calculator UI (guarded; never breaks the page) =====
+(function(){
+  const root=document.getElementById('gcalc'); if(!root)return;
+  try{
+  const C=GC_CFG, c=GCcore, $=id=>document.getElementById(id);
+  let saved={}; try{saved=JSON.parse(localStorage.getItem('mkt1_gc')||'{}')||{}}catch(e){}
+  let target=saved.target||C.pass;
+  const box=$('gc_inputs');
+  C.comps.forEach((k,i)=>{
+    const l=document.createElement('label'); l.className='small';
+    l.innerHTML=k.name+' <strong>('+k.w+'%)</strong><input class="gin" inputmode="decimal" placeholder="pending" id="gc_'+k.id+'">';
+    box.appendChild(l);
+    const inp=l.querySelector('input'); inp.value=(saved.vals&&saved.vals[i])||'';
+  });
+  const chips=$('gc_chips');
+  const drawChips=()=>{
+    chips.innerHTML=C.targets.map(t=>'<button type="button" class="tab'+(t===target?' active':'')+'" data-tg="'+t+'">'+c.fmt2(t)+'</button>').join('')+
+      ' <label class="small">Custom <input id="gc_custom" class="gin" inputmode="decimal" style="display:inline-block;width:90px;margin-left:4px" placeholder="e.g. 5,5" value="'+(C.targets.includes(target)?'':c.fmt2(target))+'"></label>';
+    chips.querySelectorAll('[data-tg]').forEach(b=>b.addEventListener('click',()=>{target=+b.dataset.tg;drawChips();calc();}));
+    $('gc_custom').addEventListener('input',e=>{const h=c.parse(e.target.value); if(h&&!isNaN(h)){target=h;calc();chips.querySelectorAll('[data-tg]').forEach(b=>b.classList.remove('active'));}});
+  };
+  drawChips();
+  const card=(lbl,val,note)=>'<div class="eval"><div class="pct" style="font-size:1.6rem">'+val+'</div><div class="nm">'+lbl+'</div>'+(note?'<div class="note">'+note+'</div>':'')+'</div>';
+  let tmr;
+  function calc(){
+    clearTimeout(tmr);
+    const raw=C.comps.map(k=>$('gc_'+k.id).value);
+    try{localStorage.setItem('mkt1_gc',JSON.stringify({vals:raw,target}))}catch(e){}
+    const vals=raw.map(v=>c.parse(v)), bad=C.comps.filter((k,i)=>Number.isNaN(vals[i]));
+    C.comps.forEach((k,i)=>{$('gc_'+k.id).style.borderColor=Number.isNaN(vals[i])?'var(--yellow)':''});
+    const v=vals.map(x=>Number.isNaN(x)?null:x), st=c.state(C,v), T=target;
+    let html=card('Decided',st.wDone+'%','open: '+st.wOpen+'%');
+    html+=card('Average so far',st.wDone?c.fmt2(Math.round(st.U/st.wDone)):'—','over the graded '+st.wDone+'%');
+    html+=card('Points secured',c.fmt2(Math.round(st.U/100))+' / 7,00','toward the final grade');
+    $('gc_status').innerHTML=html;
+    let need='';
+    if(bad.length) need+='<div class="callout trap"><span class="h">⚠️ Check the input</span>'+bad.map(k=>k.name).join(', ')+': use a grade from 1,0 to 7,0 (e.g. 5,4).</div>';
+    const ex=C.comps.findIndex(k=>k.exam);
+    if(!st.pend.length){
+      const r10=Math.floor((st.U+500)/1000), pass=st.U>=C.pass*100 && v[ex]>=C.examFloor;
+      need+='<div class="callout '+(pass?'global':'trap')+'"><span class="h">'+(pass?'✅ Passes':'✘ Does not pass')+'</span>Final grade: <strong>'+c.fmt2(Math.round(st.U/100))+'</strong> raw → <strong>'+c.fmt1(r10)+'</strong> rounded.'+(v[ex]<C.examFloor?' The Final Exam is below 3,0, which fails the course regardless of the average.':'')+(v[ex]<C.examFloor?'':(st.U>=T*100?' Target '+c.fmt2(T)+' reached.':' Target '+c.fmt2(T)+' not reached.'))+'</div>';
+      $('gc_need').innerHTML=need; $('gc_table').innerHTML=''; return;
+    }
+    const e=c.evenSplit(C,v,T);
+    let msg='';
+    if(e.type==='secured') msg='Target <strong>'+c.fmt2(T)+'</strong> is already secured, as long as the Final Exam is at least <strong>3,0</strong>.';
+    else if(e.type==='unreachable') msg='Target <strong>'+c.fmt2(T)+'</strong> is <strong>not reachable</strong>, even with 7,0 on everything pending.';
+    else if(e.type==='floor') msg='Minimum: <strong>3,0 on the Final Exam</strong> (the exam floor binds)'+(e.hasOthers?' and <strong>'+c.fmt2(e.others)+'</strong> on each other pending evaluation':'')+'.';
+    else msg='Minimum even split: <strong>'+c.fmt2(e.x)+'</strong> on every pending evaluation.';
+    need+='<div class="callout applied"><span class="h">🎯 To reach '+c.fmt2(T)+'</span>'+msg+'</div>';
+    $('gc_need').innerHTML=need;
+    $('gc_table').innerHTML='<p class="small">Calculating…</p>';
+    clearTimeout(tmr); tmr=setTimeout(()=>{
+      if(e.type==='unreachable'){$('gc_table').innerHTML='<p class="small">No combination within 3,0–6,9 reaches this target.</p>';return;}
+      const s=c.scenarios(C,v,T,12);
+      if(s.atFloor){$('gc_table').innerHTML='<p class="small">3,0 on every pending evaluation already reaches '+c.fmt2(T)+'.</p>';return;}
+      if(!s.rows.length){$('gc_table').innerHTML='<p class="small">No combination within 3,0–6,9 reaches this target (it would need a 7,0).</p>';return;}
+      let t='<div class="card" style="overflow-x:auto;padding:10px 12px"><table style="width:100%;border-collapse:collapse;font-size:.95rem;color:var(--ink2);text-align:center"><tr style="color:var(--ink);border-bottom:1px solid var(--line)">'+s.cols.map(i=>'<th style="padding:6px">'+C.comps[i].name.replace(' (your average)','')+'<br><span class="small">'+C.comps[i].w+'%</span></th>').join('')+'</tr>';
+      s.rows.forEach(r=>{t+='<tr style="border-bottom:1px solid var(--line)">'+r.map(g=>'<td style="padding:6px">'+c.fmt1(g/10)+'</td>').join('')+'</tr>'});
+      t+='</table></div>';
+      if(s.relaxed) t='<div class="callout trap"><span class="h">⚠️ Note</span>No row fits the "one grade in the 3s, one in the 6s" rule, so it was lifted for this target.</div>'+t;
+      $('gc_table').innerHTML=t;
+    },180);
+  }
+  C.comps.forEach(k=>$('gc_'+k.id).addEventListener('input',calc));
+  $('gc_clear').addEventListener('click',()=>{C.comps.forEach(k=>$('gc_'+k.id).value='');target=C.pass;drawChips();calc();});
   calc();
+  }catch(err){ const s=document.getElementById('gc_status'); if(s) s.innerHTML='<p class="small">The calculator could not start in this browser.</p>'; }
 })();
 </script>
 </body>
