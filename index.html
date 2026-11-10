@@ -741,6 +741,11 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
 
 <!-- ================= GRADE CALCULATOR ================= -->
 <section class="panel" id="gcalc">
+  <style>
+    #gcalc .gin{display:block;width:100%;margin-top:4px;background:var(--cream2);border:1px solid var(--line);border-radius:10px;padding:9px 11px;color:var(--ink);font-family:inherit;font-size:.95rem}
+    #gcalc .gin:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+    #gcalc #gc_custom{display:inline-block;width:90px;margin:0 0 0 4px}
+  </style>
   <div class="banner">
     <div class="lbl">Tool · Grade Calculator</div>
     <h2>🧮 What's decided, what's left, and what it takes.</h2>
@@ -762,8 +767,8 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
   <div id="gc_status" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))"></div>
   <div id="gc_need"></div>
 
-  <h2 class="sec">Scenarios that just reach the target</h2>
-  <p class="sub">Each row is a combination of grades on the pending evaluations that reaches the target with nothing to spare: lowering any grade by 0,1 would miss it. Grades from 3,0 to 6,9; at most one grade in the 3s and one in the 6s per row.</p>
+  <h2 class="sec">Scenarios for the pending evaluations</h2>
+  <p class="sub">If the target still needs work, each row just reaches it: lowering any grade by 0,1 would miss it (grades 3,0–6,9; at most one in the 3s and one in the 6s per row). If the target is already reached, the rows show a spread of possible results instead. The last column is the resulting final course grade.</p>
   <div id="gc_table"></div>
 
   <div class="callout take"><span class="h">✅ Rules this calculator applies</span>Final grade = 15% Group Works + 15% Reading Quizzes + 20% Test 1 + 20% Test 2 + 30% Final Exam. The course passes at <strong>3,95</strong> (rounds to 4,0). <strong>A Final Exam grade below 3,0 fails the course</strong> regardless of the average (UDD rule). This course has no exam exemption.</div>
@@ -1411,6 +1416,23 @@ const GCcore={
     }
     return {type:'even',x:Math.max(x,100)};
   },
+  whatIf(cfg,vals,maxRows){ // when the target is already met: sample combos and show the resulting course grade
+    const st=this.state(cfg,vals), P=st.pend, k=P.length; if(!k) return {rows:[],cols:[]};
+    const G=[300,400,500,600,700], all=[];
+    const rec=(d,cur)=>{ if(d===k){all.push(cur.slice());return;} for(const g of G){cur[d]=g;rec(d+1,cur);} };
+    rec(0,[]);
+    const tot=r=>st.U+r.reduce((s,g,j)=>s+g*cfg.comps[P[j]].w,0);
+    const sel=G.map(g=>all.find(r=>r.every(x=>x===g)));
+    const dist=(a,b)=>a.reduce((s,x,i)=>s+Math.abs(x-b[i]),0);
+    maxRows=maxRows||12;
+    while(sel.length<Math.min(maxRows,all.length)){
+      let best=null,bd=-1;
+      for(const r of all){ if(sel.includes(r))continue; const m=Math.min(...sel.map(x=>dist(r,x))); if(m>bd){bd=m;best=r;} }
+      if(!best)break; sel.push(best);
+    }
+    sel.sort((a,b)=>tot(a)-tot(b)||a.join().localeCompare(b.join()));
+    return {rows:sel.map(r=>({r,U:tot(r)})),cols:P};
+  },
   scenarios(cfg,vals,T,maxRows){
     const st=this.state(cfg,vals), P=st.pend; if(!P.length) return {rows:[],cols:[],relaxed:false};
     const w=P.map(i=>cfg.comps[i].w), k=P.length, TT=T*100;
@@ -1507,18 +1529,25 @@ const GCcore={
     let msg='';
     if(e.type==='secured') msg='Target <strong>'+c.fmt2(T)+'</strong> is already secured, as long as the Final Exam is at least <strong>3,0</strong>.';
     else if(e.type==='unreachable') msg='Target <strong>'+c.fmt2(T)+'</strong> is <strong>not reachable</strong>, even with 7,0 on everything pending.';
-    else if(e.type==='floor') msg='Minimum: <strong>3,0 on the Final Exam</strong> (the exam floor binds)'+(e.hasOthers?' and <strong>'+c.fmt2(e.others)+'</strong> on each other pending evaluation':'')+'.';
-    else msg='Minimum even split: <strong>'+c.fmt2(e.x)+'</strong> on every pending evaluation.';
+    else if(e.type==='floor') msg='Minimum: <strong>3,0 on the Final Exam</strong> (the lowest exam grade allowed — below 3,0 fails the course)'+(e.hasOthers?' and <strong>'+c.fmt1(e.others/10)+'</strong> on each other pending evaluation':'')+'.';
+    else msg='Minimum even split: <strong>'+c.fmt1(e.x/10)+'</strong> on every pending evaluation.';
     need+='<div class="callout applied"><span class="h">🎯 To reach '+c.fmt2(T)+'</span>'+msg+'</div>';
     $('gc_need').innerHTML=need;
     $('gc_table').innerHTML='<p class="small">Calculating…</p>';
     clearTimeout(tmr); tmr=setTimeout(()=>{
       if(e.type==='unreachable'){$('gc_table').innerHTML='<p class="small">No combination within 3,0–6,9 reaches this target.</p>';return;}
       const s=c.scenarios(C,v,T,12);
-      if(s.atFloor){$('gc_table').innerHTML='<p class="small">3,0 on every pending evaluation already reaches '+c.fmt2(T)+'.</p>';return;}
+      const cg=U=>'<td style="padding:6px;color:var(--ink)"><strong>'+c.fmt2(Math.round(U/100))+'</strong> → '+c.fmt1(Math.floor((U+500)/1000))+'</td>';
+      const head=cols=>'<div class="card" style="overflow-x:auto;padding:10px 12px"><table style="width:100%;border-collapse:collapse;font-size:.95rem;color:var(--ink2);text-align:center"><tr style="color:var(--ink);border-bottom:1px solid var(--line)">'+cols.map(i=>'<th style="padding:6px">'+C.comps[i].name.replace(' (your average)','')+'<br><span class="small">'+C.comps[i].w+'%</span></th>').join('')+'<th style="padding:6px">Course grade<br><span class="small">raw → rounded</span></th></tr>';
+      const rowU=r=>st.U+r.reduce((a,g,j)=>a+g*C.comps[s.cols[j]].w,0);
+      if(s.atFloor){
+        const wi=c.whatIf(C,v,12); let t='<div class="callout global"><span class="h">✅ Already reaching '+c.fmt2(T)+'</span>3,0 on every pending evaluation is enough. The table shows what the final course grade would be with different results.</div>'+head(wi.cols);
+        wi.rows.forEach(o=>{t+='<tr style="border-bottom:1px solid var(--line)">'+o.r.map(g=>'<td style="padding:6px">'+c.fmt1(g/10)+'</td>').join('')+cg(o.U)+'</tr>'});
+        $('gc_table').innerHTML=t+'</table></div>'; return;
+      }
       if(!s.rows.length){$('gc_table').innerHTML='<p class="small">No combination within 3,0–6,9 reaches this target (it would need a 7,0).</p>';return;}
-      let t='<div class="card" style="overflow-x:auto;padding:10px 12px"><table style="width:100%;border-collapse:collapse;font-size:.95rem;color:var(--ink2);text-align:center"><tr style="color:var(--ink);border-bottom:1px solid var(--line)">'+s.cols.map(i=>'<th style="padding:6px">'+C.comps[i].name.replace(' (your average)','')+'<br><span class="small">'+C.comps[i].w+'%</span></th>').join('')+'</tr>';
-      s.rows.forEach(r=>{t+='<tr style="border-bottom:1px solid var(--line)">'+r.map(g=>'<td style="padding:6px">'+c.fmt1(g/10)+'</td>').join('')+'</tr>'});
+      let t=head(s.cols);
+      s.rows.forEach(r=>{t+='<tr style="border-bottom:1px solid var(--line)">'+r.map(g=>'<td style="padding:6px">'+c.fmt1(g/10)+'</td>').join('')+cg(rowU(r))+'</tr>'});
       t+='</table></div>';
       if(s.relaxed) t='<div class="callout trap"><span class="h">⚠️ Note</span>No row fits the "one grade in the 3s, one in the 6s" rule, so it was lifted for this target.</div>'+t;
       $('gc_table').innerHTML=t;
