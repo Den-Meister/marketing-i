@@ -167,6 +167,7 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
     <button class="tab" data-t="mock">📝 Mock Test</button>
     <button class="tab" data-t="rq2">📖 Reading Q2<span class="dot"></span></button>
     <button class="tab" data-t="rq3">📖 Reading Q3<span class="dot"></span></button>
+    <button class="tab" data-t="rq4">📖 Reading Q4<span class="dot"></span></button>
     <button class="tab locked" title="Unlocks when we cover it">Unit IV · Markets 🔒</button>
     <button class="tab locked" title="Unlocks when we cover it">Unit V · Positioning 🔒</button>
   </div>
@@ -181,6 +182,8 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
     <h2>Marketing = creating value for customers and capturing value back in return.</h2>
     <p>Every unit is a variation on that sentence. Keep it as your anchor all semester.</p>
   </div>
+
+  <div class="callout take"><span class="h">▶ Next up: Test 2 — Tuesday</span><strong>Unit III · case-based</strong> (~100 pts / 90 min). Study path: <em>Unit III</em> tab → Unit III Quizlet → <em>📝 Mock Test</em> (produce first) → <em>🌙 Last Read</em> to self-test.</div>
 
   <h2 class="sec">How your grade is built</h2>
   <p class="sub">From the Unit I syllabus slide. Two grades let you erase your worst — use them as low-stakes practice, not throwaways.</p>
@@ -199,6 +202,24 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
     <span style="width:30%;background:#8f4a24"></span>
   </div>
   <p class="legend">Attendance: minimum <strong>75%</strong> required — you can miss up to 3 full sessions (6 modules). Class starts 8:30 sharp; no phones; sign the QR only if you're actually there.</p>
+
+  <h2 class="sec">🧮 Grade calculator</h2>
+  <p class="sub">Enter your own grades (1.0–7.0). Weights from the syllabus slide; the worst Group Work and the worst Reading Quiz are dropped automatically. Leave anything blank that you don't have yet.</p>
+  <div class="card" id="gcalc">
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+      <label class="small">Group Works (15%) — separate grades with spaces<input id="g_gw" type="text" inputmode="decimal" placeholder="e.g. 6.0 5.5 6.5 7.0" class="gin"></label>
+      <label class="small">Reading Quizzes (15%) — separate with spaces<input id="g_rq" type="text" inputmode="decimal" placeholder="e.g. 5.8 6.2 4.9" class="gin"></label>
+      <label class="small">Test 1 (20%)<input id="g_t1" type="text" inputmode="decimal" placeholder="e.g. 5.4" class="gin"></label>
+      <label class="small">Test 2 (20%)<input id="g_t2" type="text" inputmode="decimal" placeholder="e.g. 5.0" class="gin"></label>
+      <label class="small">Final Exam (30%)<input id="g_fx" type="text" inputmode="decimal" placeholder="blank = not taken yet" class="gin"></label>
+    </div>
+    <div id="g_out" style="margin-top:14px;color:var(--ink2);font-size:.95rem"></div>
+    <p class="small" style="margin-top:10px">Rules used: the course passes at a final grade of <strong>3.95</strong> (rounds to 4.0). UDD rule: a Final Exam grade <strong>below 3.0 fails the course</strong> regardless of the average. Decimals with a comma (5,5) work too.</p>
+  </div>
+  <style>
+    .gin{display:block;width:100%;margin-top:4px;background:var(--cream2);border:1px solid var(--line);border-radius:10px;padding:9px 11px;color:var(--ink);font-family:inherit;font-size:.95rem}
+    .gin:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+  </style>
 
   <div class="callout applied"><span class="h">🎯 How this professor grades (from the pautas we've studied)</span>She marks by <strong>ticking off named, enumerated components</strong> — she literally counts the parts of your answer. Full marks need the <strong>correct concept named, broken into labeled parts, each backed by a specific example or fact</strong> (from the article or reading). Her partial credit is explicit: <em>"name at least 2," "3 = a full answer," "2 pts per item."</em> So on every question: <strong>label and number each part, and tie each to a concrete fact.</strong> A numbered/labeled list beats a flowing paragraph, and a bare term with no example or reason loses points.</div>
 
@@ -736,57 +757,56 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
 <!-- ================= SUMMARY / LAST READ ================= -->
 <section class="panel" id="summary">
   <div class="banner">
-    <div class="lbl">Last Read · Test 2 (Unit III)</div>
+    <div class="lbl">Last Read · Reading Quiz 4 (Demand Forecasting)</div>
     <h2>Quick Recall — cover, produce, reveal.</h2>
-    <p>Not a summary to re-read — a <strong>self-test</strong>. Each prompt below hides its answer. Say the full answer out loud <em>before</em> you tap it open. If you can't produce it cleanly, it isn't exam-ready yet. This is your highest-yield last pass.</p>
+    <p>Not a summary to re-read — a <strong>self-test</strong>. Each prompt hides its answer. Say the full answer out loud <em>before</em> tapping it open. If it doesn't come out cleanly, it isn't quiz-ready yet.</p>
   </div>
 
-  <div class="callout applied"><span class="h">📌 How to use this</span>Read the prompt → produce the whole answer aloud (name the parts) → tap to reveal and check → re-do any you missed. <strong>☀️ pre-test:</strong> drill the whole bank. <strong>🌙 pre-sleep:</strong> don't drill — just read the 🌙 box at the bottom and close the tab.</div>
+  <div class="callout applied"><span class="h">📌 How to use this</span>Read the prompt → produce the whole answer aloud (name every part) → tap to check → redo any miss. Built only from the Guesalaga reading; the full guide is in the <strong>📖 Reading Q4</strong> tab.</div>
 
-  <div class="callout take"><span class="h">☀️ Remember it's a CASE exam — the answer shape</span>Knowing these cold is half the battle. On the paper: <strong>name the framework → list its parts (labeled) → apply each part to a fact in the case.</strong> The recall below is the raw material; the Mock Test is where you practise wiring it to a case.</div>
+  <div class="callout take"><span class="h">☀️ The answer shape for a reading quiz (~5 pts a question)</span><strong>Name it → explain it in 2–3 sentences → give the reading's example or number.</strong> For "name the N…" questions, number each item. A bare term with no explanation or example loses points.</div>
 
-  <h2 class="sec">☀️ A · B2C / B2B basics</h2>
-  <details class="q"><summary>Define B2C, and give an example.</summary><div class="ans">Business-to-Consumer: a business sells to an <strong>individual end customer</strong>; the firm must "lead" the customer to its offer. <em>Ex: Amazon, Netflix, Spotify, Pizza Hut.</em></div></details>
-  <details class="q"><summary>Define B2B, and give an example.</summary><div class="ans">Business-to-Business: a business sells to <strong>another organization</strong>, which <em>specifies the requirements</em> (common for manufacturing supplies). <em>Ex: SAP, Salesforce, IBM, Deloitte.</em></div></details>
-  <details class="q"><summary>What is B2G (one line)?</summary><div class="ans">Business-to-Government: selling to the state via <strong>tenders/public bidding</strong>; heavily regulated; high-value, long-term contracts; slow/bureaucratic.</div></details>
-  <details class="q"><summary>Name the 4 differences between B2B and B2C.</summary><div class="ans"><strong>1)</strong> Volume &amp; value of the transaction · <strong>2)</strong> Complexity of the purchase process · <strong>3)</strong> Length of the commercial relationship · <strong>4)</strong> Purchase criteria.</div></details>
-  <details class="q"><summary>What drives B2B decisions vs B2C?</summary><div class="ans"><strong>B2B:</strong> business objectives, operational efficiency, ROI — with multiple decision-makers. <strong>B2C:</strong> personal needs and wants, sporadic, more emotional.</div></details>
+  <h2 class="sec">☀️ A · Definitions &amp; dimensions</h2>
+  <details class="q"><summary>Define demand forecasting.</summary><div class="ans">Estimating the <strong>quantity of products or services prospective customers will be willing to buy or contract during a specific time period.</strong></div></details>
+  <details class="q"><summary>Name the 3 dimensions of market demand.</summary><div class="ans"><strong>WHAT</strong> (product categories &amp; varieties, SKUs, level of aggregation) · <strong>WHEN</strong> (time horizon &amp; urgency) · <strong>WHERE</strong> (geography, channels, point of consumption).</div></details>
+  <details class="q"><summary>Name the 3 forecast time horizons and what each is used for.</summary><div class="ans"><strong>Short-term (0–3 months)</strong>: operations, inventory, tactical marketing · <strong>Medium-term (3–12 months)</strong>: promotions, seasonal inventory, capacity · <strong>Long-term (1–5+ years)</strong>: market entry, facility expansion, product development.</div></details>
+  <details class="q"><summary>Name the 3 levels of purchase urgency, with an example each.</summary><div class="ans"><strong>Emergency</strong> (replacement parts for broken equipment) · <strong>Planned</strong> (annual technology upgrades) · <strong>Aspirational</strong> (luxury goods).</div></details>
+  <details class="q"><summary>Why does the level of aggregation matter (WHAT)?</summary><div class="ans">Too <strong>broad</strong> ("consumer electronics") hides segment trends; too <strong>granular</strong> (single SKUs) adds noise and complexity. Strike a balance.</div></details>
 
-  <h2 class="sec">☀️ B · The buying process</h2>
-  <details class="q"><summary>Name the 5 steps of the buyer decision process.</summary><div class="ans"><strong>1)</strong> Need Recognition → <strong>2)</strong> Information Search → <strong>3)</strong> Evaluation of Alternatives → <strong>4)</strong> Purchase Decision → <strong>5)</strong> Post-Purchase Behaviour.</div></details>
-  <details class="q"><summary>What is Need Recognition?</summary><div class="ans">The consumer perceives a <strong>gap between their current state and their desired/ideal state</strong>, triggered by internal or external factors.</div></details>
-  <details class="q"><summary>Name the 3 information-search source types.</summary><div class="ans"><strong>Personal</strong> (family/friends, social networks, experiences, samples) · <strong>Commercial</strong> (advertising, influencers, events, direct marketing, web) · <strong>Public</strong> (publications, press, consumer associations, blogs).</div></details>
-  <details class="q"><summary>Name the 3 selective-perception processes.</summary><div class="ans">Selective <strong>attention</strong> · selective <strong>distortion</strong> · selective <strong>retention</strong>. ("Perception is reality.")</div></details>
-  <details class="q"><summary>Name the 3 evaluation decision rules.</summary><div class="ans"><strong>Compensatory</strong> (a strong attribute offsets a weak one) · <strong>Non-compensatory</strong> (minimum thresholds; discard any fail) · <strong>Heuristics</strong> (shortcuts: brand, price, popularity).</div></details>
-  <details class="q"><summary>Between intention and purchase, what 2 things can intervene?</summary><div class="ans"><strong>Other people's attitudes</strong> and <strong>unforeseen situational factors.</strong> (Intention doesn't always become action.)</div></details>
-  <details class="q"><summary>What happens in Post-Purchase Behaviour?</summary><div class="ans">Use/consumption, <strong>satisfaction or dissatisfaction</strong>, possible return; then reviews, word of mouth, repeat purchase, complaints, brand engagement — and it feeds <strong>learning</strong>.</div></details>
+  <h2 class="sec">☀️ B · Markets &amp; market potential</h2>
+  <details class="q"><summary>Name the 4 market types, outermost to innermost.</summary><div class="ans"><strong>Potential → Available → Target → Penetrated.</strong></div></details>
+  <details class="q"><summary>Potential vs available market — the exact difference?</summary><div class="ans">Potential = <strong>interest</strong> but lacking <strong>income or access</strong>. Available = <strong>interest + income + access</strong> (all three).</div></details>
+  <details class="q"><summary>Define the target and penetrated markets.</summary><div class="ans"><strong>Target</strong> = the segment of the available market the firm chooses, fitting its positioning, capabilities and advantages. <strong>Penetrated</strong> = actual customers who have bought; vs target it shows the penetration rate.</div></details>
+  <details class="q"><summary>Define market potential and give its formula.</summary><div class="ans">Maximum sales available to <strong>all companies in an industry</strong> in a period, given assumed marketing effort and environment. <strong>Buyers × average quantity per period × price per unit.</strong></div></details>
+  <details class="q"><summary>Book example: compute it, and why can't segments be added?</summary><div class="ans">100M × 3 × $20 = <strong>$6 billion</strong>. Segments (fiction, non-fiction, children's) <strong>overlap</strong> — many buyers buy several categories — so they mustn't be summed.</div></details>
 
-  <h2 class="sec">☀️ C · What shapes the buyer (the 5 factor groups)</h2>
-  <details class="q"><summary>Name the 5 groups of factors that influence consumer behaviour.</summary><div class="ans"><strong>Cultural · Social · Personal · Psychological · Circumstantial.</strong></div></details>
-  <details class="q"><summary>Cultural factors — the 3 items?</summary><div class="ans">Culture · subculture · social class.</div></details>
-  <details class="q"><summary>Social factors — the 3 items?</summary><div class="ans">Reference groups · family · roles &amp; status.</div></details>
-  <details class="q"><summary>Personal factors — name them.</summary><div class="ans">Age &amp; life-cycle stage · profession/type of work · economic situation · lifestyle · personality.</div></details>
-  <details class="q"><summary>Psychological factors — name them.</summary><div class="ans">Motivation · perception · beliefs &amp; attitudes · learning.</div></details>
-  <details class="q"><summary>Circumstantial factors — the 2 items?</summary><div class="ans">Roles during the buying process · type of decision (high- vs low-involvement).</div></details>
+  <h2 class="sec">☀️ C · The S-curve</h2>
+  <details class="q"><summary>Market potential vs demand forecast (one line each).</summary><div class="ans"><strong>Potential</strong> = the limit as marketing investment tends to infinity — "what's possible." <strong>Forecast</strong> = demand at the expected marketing investment — "what's probable."</div></details>
+  <details class="q"><summary>Why does minimum market demand exist? (3 reasons)</summary><div class="ans">Essential needs (basic food, utilities) · word-of-mouth &amp; organic awareness · derived demand from other products/services.</div></details>
+  <details class="q"><summary>Why does demand accelerate, then flatten?</summary><div class="ans"><strong>Accelerates</strong> from awareness building, distribution expansion, trial &amp; adoption, network effects. <strong>Flattens</strong> at maturity: saturation → diminishing returns; demand never exceeds potential.</div></details>
 
-  <h2 class="sec">☀️ D · Needs &amp; value</h2>
-  <details class="q"><summary>What does Maslow's pyramid say about buying?</summary><div class="ans">As <strong>basic needs</strong> (bottom) are met, people develop <strong>higher needs</strong> (top). Needs are what trigger need-recognition and start the buying process.</div></details>
-  <details class="q"><summary>Name KANO's 3 need types.</summary><div class="ans"><strong>Basic</strong> (expected/taken for granted — absent → very dissatisfied) · <strong>Performance</strong> (more = more satisfying; used to compare) · <strong>Excitement</strong> (unexpected delighters — a plus, not a must).</div></details>
-  <details class="q"><summary>State the Value Formula (with its parts).</summary><div class="ans"><strong>Value = Benefits ÷ Costs.</strong> Benefits = <strong>functional</strong> or <strong>emotional</strong>. Costs = <strong>price</strong> + <strong>hassle/discomfort</strong> + <strong>insecurities</strong> (risk). Raise value by lifting benefits or cutting a cost.</div></details>
+  <h2 class="sec">☀️ D · Who uses forecasts &amp; the cost of errors</h2>
+  <details class="q"><summary>Name the 5 departments that rely on the forecast, with one use each.</summary><div class="ans"><strong>Finance</strong> (investment, budgets/cash flow) · <strong>Production</strong> (capacity, shifts, make-or-buy) · <strong>Procurement</strong> (supplier contracts, safety stock) · <strong>Supply chain</strong> (fleet, warehouses, network) · <strong>HR</strong> (hiring, training, compensation).</div></details>
+  <details class="q"><summary>Over-estimation: 4 short-term consequences + the example.</summary><div class="ans">Excess inventory · spoilage/obsolescence · financial carrying costs · price markdowns. <em>BlackBerry Z10, 2013: ~$1 billion inventory write-off, thousands of layoffs.</em></div></details>
+  <details class="q"><summary>Under-estimation: 4 short-term consequences + the example.</summary><div class="ans">Lost sales · distribution loss (shelf space to rivals) · customer/channel conflicts · margin erosion (rush orders). <em>Nintendo Switch, 2017: months of stockouts; buyers switched to rival consoles.</em></div></details>
 
-  <h2 class="sec">☀️ E · Decisions &amp; the buying centre</h2>
-  <details class="q"><summary>Define customer experience (CX).</summary><div class="ans">The <strong>internal and subjective response</strong> a customer has to <em>any</em> direct or indirect contact with the company.</div></details>
-  <details class="q"><summary>What is the consumer journey, and its 3 stages?</summary><div class="ans">The <strong>holistic sum of experiences</strong> with a brand over time (non-linear, all channels). Stages: <strong>Pre-purchase · Purchase · Post-purchase.</strong></div></details>
-  <details class="q"><summary>Name the 6 buying-centre roles.</summary><div class="ans"><strong>Initiator · Influencer · Decider · Buyer · User · Gatekeeper</strong> (= the Decision Making Unit, DMU). On a case, name a real person/area for each.</div></details>
-  <details class="q"><summary>What is the Gatekeeper?</summary><div class="ans">Controls the <strong>flow of information</strong>; can stop a decision moving forward but is <strong>not</strong> the decider (e.g. purchasing agents, technical staff).</div></details>
-  <details class="q"><summary>What's the B2B key success factor (KSF)?</summary><div class="ans">Meet the customer's requirements <strong>"better"</strong> than rivals — faster, cheaper, better payment terms, aligned with their strategy &amp; values — and build <strong>long-lasting relationships</strong>.</div></details>
-  <details class="q"><summary>What is GRASP (and what's it for)?</summary><div class="ans"><strong>G</strong>oal · <strong>R</strong>ole · <strong>A</strong>ppeal · <strong>S</strong>tate · <strong>P</strong>ower — used to evaluate each member of the B2B Decision Making Unit (DMU).</div></details>
+  <h2 class="sec">☀️ E · The 6 methods</h2>
+  <details class="q"><summary>Name all 6 forecasting methods, in order.</summary><div class="ans"><strong>1) Buyer survey · 2) Sales force composite · 3) Expert opinion (Delphi) · 4) Historical sales analysis (time series) · 5) Causal models · 6) Market testing.</strong></div></details>
+  <details class="q"><summary>Buyer survey: the intention scale weights + main weakness.</summary><div class="ans">Definitely 90–100% · probably 50–70% · might 20–30% · probably won't 5–10% · definitely won't 0%. Weakness: <strong>intention-action gap</strong> (stated intent exceeds behaviour).</div></details>
+  <details class="q"><summary>Sales force composite: how it works + main weakness.</summary><div class="ans"><strong>Bottom-up</strong>: each rep forecasts their territory → regional → corporate → reconcile with top-down analysis. Weakness: <strong>sandbagging</strong> (forecasting low to hit quota).</div></details>
+  <details class="q"><summary>Delphi: the steps + why anonymity matters.</summary><div class="ans">Independent forecasts → anonymous summary (mean/median/range) → revise &amp; justify → repeat 2–4 rounds → consensus. Anonymity avoids <strong>groupthink</strong> and dominance by assertive people.</div></details>
+  <details class="q"><summary>Name the 4 time-series techniques.</summary><div class="ans">Moving average · weighted moving average · exponential smoothing · ARIMA (AutoRegressive Integrated Moving Average).</div></details>
+  <details class="q"><summary>Exponential smoothing formula + what α does.</summary><div class="ans">Forecast(t+1) = <strong>α × Sales(t) + (1 − α) × Forecast(t)</strong>. α near 1 = responsive (volatile markets); α near 0 = stable (stable markets).</div></details>
+  <details class="q"><summary>Time series: biggest weakness?</summary><div class="ans">Assumes past patterns continue (vulnerable to <strong>structural breaks</strong>); ignores causal factors; poor for new products.</div></details>
+  <details class="q"><summary>Causal model: the formula's parts + what it enables.</summary><div class="ans">Sales = β₀ (baseline) + β·Price + β·Advertising + β·Income + β·Competition + ε (error). Enables <strong>"what-if" scenarios</strong> and quantifies marketing's impact.</div></details>
+  <details class="q"><summary>Name the 3 kinds of market testing, with the example of each.</summary><div class="ans"><strong>Geographic test markets</strong> (snack flavour: Portland/Columbus/Austin — grassroots won) · <strong>Channel testing</strong> (skincare: Sephora strongest) · <strong>Digital A/B testing</strong> (SaaS: $39 tier earned more despite lower conversion).</div></details>
+  <details class="q"><summary>Name the 5 characteristics of effective forecasting systems.</summary><div class="ans">Multiple methods · regular updating · forecast-accuracy tracking · stakeholder collaboration · scenario planning (best/base/worst).</div></details>
 
-  <div class="callout take" id="tonight"><span class="h">🌙 Tonight — you already know this</span><strong>In one breath:</strong> buyers (B2C or B2B) move through <strong>need → search → evaluate → decide → post-purchase</strong>, shaped by <strong>cultural / social / personal / psychological / circumstantial</strong> factors, and decided by a <strong>buying centre</strong> of roles (initiator → user, plus the gatekeeper). <strong>B2B</strong> is bigger, longer, ROI-driven, multi-decider — evaluate each member with <strong>GRASP</strong>. Value = benefits over costs. Close the tab and sleep — that's how it sticks.</div>
+  <div class="callout take" id="tonight"><span class="h">🌙 Tonight — you already know this</span><strong>In one breath:</strong> forecast = what customers will buy in a period (WHAT/WHEN/WHERE). Markets nest <strong>potential → available → target → penetrated</strong>. Potential (buyers × quantity × price) = possible; forecast = probable. Five departments depend on it; over = BlackBerry, under = Nintendo. Six methods, combined: <strong>survey, sales force, Delphi, time series, causal, testing.</strong></div>
 
-  <h2 class="sec">☀️ 📝 My notes <span class="small">(pre-test only — don't open this tonight)</span></h2>
-  <p class="sub">Saves automatically. Jot a list you keep blanking on, or something to re-check with Claude.</p>
-  <textarea id="mynotes" placeholder="e.g. Re-check: which buying-centre role the gatekeeper is vs the decider. Ask Claude to grade one more B2B case."
+  <h2 class="sec">☀️ 📝 My notes <span class="small">(pre-quiz only)</span></h2>
+  <p class="sub">Saves automatically. Jot a list you keep blanking on, or something to re-check.</p>
+  <textarea id="mynotes" placeholder="e.g. Re-check: the buyer-survey weights; the 4 short-term costs of under-estimation."
     style="width:100%;min-height:120px;background:var(--card);border:1px solid var(--line);border-radius:12px;
     padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:.97rem;color:var(--ink);line-height:1.6;
     box-shadow:var(--shadow);resize:vertical"></textarea>
@@ -796,117 +816,101 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
 <!-- ============ CHEAT SHEET (replace this whole block each evaluation) START ============ -->
 <section class="panel" id="cheat">
   <div class="banner">
-    <div class="lbl">Cheat Sheet · Test 2 (Unit III)</div>
-    <h2>The answer key — every Unit III framework, in the shape that scores.</h2>
-    <p>One screen. Each card = <strong>framework → its named parts → how you'd apply it to a case.</strong> Test 2 is a <strong>case</strong>, so you don't just name these — you map them onto the company. Built from your Unit III decks.</p>
+    <div class="lbl">Cheat Sheet · Reading Quiz 4 (Demand Forecasting)</div>
+    <h2>The answer key — every list, formula and example in the reading.</h2>
+    <p>One screen. Each card = <strong>the named parts → the reading's example or number.</strong> Reading quizzes are short-answer (~4 questions × 5 pts): name it, explain it, back it with the reading.</p>
   </div>
 
-  <div class="callout applied"><span class="h">📌 How Test 2 asks (your section: ~100 pts, 90 min, case + ~5 questions)</span>You read a company scenario and <strong>apply</strong> Unit III to it: why B2B vs B2C, the 5-step process compared, the buying-centre/power map, factors/journey, value. Full marks = <strong>name the framework → list its parts (labeled) → tie each part to a fact in the case.</strong> A "who" in the power map must be a <em>person or area</em>, never "the company."</div>
-
-  <h2 class="sec">The answer key (framework → parts → apply)</h2>
+  <h2 class="sec">Lists to know cold</h2>
   <div class="grid">
-    <div class="card"><h4>Buyer decision process (5 steps)</h4><p>Need Recognition → Information Search → Evaluation of Alternatives → Purchase Decision → Post-Purchase. <em>Apply: walk the case company's buyer through each step; compare B2B vs B2C.</em></p></div>
-    <div class="card"><h4>B2B vs B2C — 4 differences</h4><p>Volume &amp; value · complexity of the process · length of the relationship · purchase criteria. <em>B2B = big volumes, long contracts, many deciders, ROI/efficiency; B2C = personal wants, sporadic, emotional.</em></p></div>
-    <div class="card"><h4>Buying centre / power map (6 roles)</h4><p><strong>Initiator · Influencer · Decider · Buyer · User · Gatekeeper</strong> (= the DMU). <em>Apply: name a real person/area for each; the gatekeeper controls info &amp; can block, but isn't the decider.</em> In B2B the "pieces" are departments: <strong>HR · Sales/Commercial · Marketing · Operations/Supply · IT · Finance.</strong></p></div>
-    <div class="card"><h4>Sales funnel: B2C vs B2B</h4><p><strong>B2C</strong> = short purchase funnel (awareness → consider → buy → loyalty). <strong>B2B</strong> = longer, relationship-oriented: info-seeking → proposal → compare vs competition → <strong>contract</strong> (potential→real customer) → <strong>long-term relationship</strong>. B2B's goal is the relationship, not the one sale.</p></div>
-    <div class="card"><h4>5 factor groups</h4><p><strong>Cultural</strong> (culture/subculture/class) · <strong>Social</strong> (reference groups/family/roles) · <strong>Personal</strong> (age/job/economy/lifestyle/personality) · <strong>Psychological</strong> (motivation/perception/beliefs/learning) · <strong>Circumstantial</strong> (buying roles/involvement).</p></div>
-    <div class="card"><h4>Needs: Maslow &amp; KANO</h4><p>Maslow: basic needs met → higher needs emerge. <strong>KANO</strong>: <em>Basic</em> (must-be; absent → very dissatisfied) · <em>Performance</em> (more = more satisfying; comparable) · <em>Excitement</em> (unexpected delighters).</p></div>
-    <div class="card"><h4>The Value Formula</h4><p><strong>Value = Benefits ÷ Costs.</strong> Benefits = functional or emotional. Costs = price + hassle/discomfort + insecurities. <em>Apply: show how the case raises benefits or cuts a cost.</em></p></div>
-    <div class="card"><h4>Decision rules (evaluation)</h4><p><strong>Compensatory</strong> (a strong attribute offsets a weak one) · <strong>Non-compensatory</strong> (minimum thresholds; discard any fail) · <strong>Heuristics</strong> (shortcuts: brand, price, popularity).</p></div>
-    <div class="card"><h4>Information search + perception</h4><p>Sources: <strong>Personal · Commercial · Public.</strong> Perception filters: <strong>selective attention · distortion · retention</strong> ("perception is reality").</p></div>
-    <div class="card"><h4>Customer experience &amp; journey</h4><p>CX = internal/subjective response to any contact. Journey = holistic experiences over time, all channels, non-linear. 3 stages: <strong>pre-purchase · purchase · post-purchase.</strong></p></div>
-    <div class="card"><h4>Organizational (B2B) — KSF</h4><p>Not a one-way process; it's about the customer's needs. <strong>KSF</strong>: meet requirements <em>"better"</em> than rivals — faster, cheaper, better terms, aligned with their strategy/values — and build long-term relationships.</p></div>
-    <div class="card"><h4>GRASP (evaluate each DMU member)</h4><p><strong>G</strong>oal · <strong>R</strong>ole · <strong>A</strong>ppeal · <strong>S</strong>tate · <strong>P</strong>ower. <em>Apply: profile each power-map member on these 5.</em></p></div>
-    <div class="card"><h4>B2G (know it exists)</h4><p>Selling to government via <strong>tenders/bidding</strong>; heavily regulated; high-value, long-term; slow/bureaucratic.</p></div>
+    <div class="card"><h4>3 dimensions</h4><p><strong>WHAT</strong> (categories, SKUs, aggregation) · <strong>WHEN</strong> (0–3 / 3–12 months / 1–5+ years; emergency · planned · aspirational) · <strong>WHERE</strong> (geography · channels · point of consumption).</p></div>
+    <div class="card"><h4>4 markets (out → in)</h4><p><strong>Potential</strong> (interest; lacks income or access) → <strong>Available</strong> (interest + income + access) → <strong>Target</strong> (chosen segment) → <strong>Penetrated</strong> (actual customers).</p></div>
+    <div class="card"><h4>S-curve</h4><p><strong>Potential</strong> = limit as marketing → ∞ ("possible") · <strong>Forecast</strong> = demand at expected marketing ("probable") · <strong>Minimum demand</strong> = essential needs, word-of-mouth, derived demand · accelerate → flatten (diminishing returns).</p></div>
+    <div class="card"><h4>5 departments</h4><p><strong>Finance</strong> ($50M plant; 20% optimistic = unprofitable) · <strong>Production</strong> (100k cars; 15% error) · <strong>Procurement</strong> (holiday inputs 3–6 months ahead) · <strong>Supply chain</strong> (Black Friday capacity) · <strong>HR</strong> (15% growth → hire &amp; train).</p></div>
+    <div class="card"><h4>Over-estimation</h4><p>Short: excess inventory · spoilage · carrying costs · markdowns. Long: lower profit · investor confidence · partnership strain · morale. <strong>BlackBerry Z10 (2013), ~$1B write-off.</strong></p></div>
+    <div class="card"><h4>Under-estimation</h4><p>Short: lost sales · distribution loss · customer conflicts · margin erosion. Long: share loss · attrition · employee turnover · growth constraints · brand damage. <strong>Nintendo Switch (2017) stockouts.</strong></p></div>
+    <div class="card"><h4>6 methods</h4><p><strong>1</strong> Buyer survey (intention gap) · <strong>2</strong> Sales force composite (sandbagging) · <strong>3</strong> Expert opinion/Delphi (slow, bias) · <strong>4</strong> Time series (past ≠ future) · <strong>5</strong> Causal (data-heavy) · <strong>6</strong> Market testing (costly, rivals see it).</p></div>
+    <div class="card"><h4>5 traits of good forecasting</h4><p>Multiple methods · regular updating · accuracy tracking · stakeholder collaboration · scenario planning (best/base/worst). Art + science.</p></div>
   </div>
 
-  <div class="callout take"><span class="h">✅ The move that scores every case question</span><strong>Name the framework → list its parts (labeled) → apply each to a fact in the case.</strong> Three beats, every time. For "why" questions, add the justification tying it to the company's business logic. Practise producing these cold in the 📝 Mock Test tab.</div>
+  <h2 class="sec">Formulas (with the reading's numbers)</h2>
+  <div class="grid">
+    <div class="card"><h4>Market potential</h4><p>Buyers × quantity per period × price. <em>100M × 3 × $20 = $6B.</em> Segments overlap → don't add them.</p></div>
+    <div class="card"><h4>Buyer survey</h4><p>Σ(% at each intention level × its weight) × market × conversion. <em>14.25% + 15% + 7.5% = 36.75%; 5M × 36.75% × 70% = 1,286,250.</em></p></div>
+    <div class="card"><h4>Moving average</h4><p>Average of the last <em>n</em> periods. <em>(138 + 151 + 148) ÷ 3 = 145.67.</em></p></div>
+    <div class="card"><h4>Weighted moving average</h4><p>Bigger weights on recent periods. <em>148×0.5 + 151×0.3 + 138×0.2 = 146.9.</em></p></div>
+    <div class="card"><h4>Exponential smoothing</h4><p>α × actual + (1 − α) × last forecast. <em>0.3×148 + 0.7×140 = 142.4.</em> High α = responsive.</p></div>
+    <div class="card"><h4>Causal regression</h4><p>Sales = β₀ + β·Price + β·Advertising + β·Income + β·Competition + ε. <em>Refrigerators → 113,500 units.</em></p></div>
+  </div>
+
+  <div class="callout take"><span class="h">✅ The move that scores every question</span><strong>Name it → explain it in 2–3 sentences → back it with the reading's example or number.</strong> For lists, number every item; for a calculation, show the formula, then the numbers.</div>
 </section>
 <!-- ============ CHEAT SHEET END ============ -->
+
 
 <!-- ============ MOCK TEST (replace this whole block each evaluation) START ============ -->
 <section class="panel" id="mock">
   <div class="banner">
-    <div class="lbl">Mock Test · Test 2 (Unit III)</div>
-    <h2>Application mock — a B2B case + 5 questions, your section's scale (~100 pts, 90 min).</h2>
-    <p>This is the real skill Test 2 tests: <strong>applying</strong> Unit III to a company you've never seen. Read the case, then <strong>produce every answer before you reveal it.</strong> Model answers show the labeled, case-anchored form that scores.</p>
+    <div class="lbl">Mock Test · Reading Quiz 4 (Demand Forecasting)</div>
+    <h2>Reading-quiz mock — 4 questions × 5 pts (20 pts) + a calculation drill.</h2>
+    <p>Same shape as the professor's reading quizzes: short answers, "name the N…", concept + example. <strong>Write every answer before revealing it.</strong> Model answers show the labeled form that earns full marks.</p>
   </div>
 
-  <div class="callout trap"><span class="h">⧉ Outside — the "CaféDirecto" case is a Claude-written practice scenario, not from your course</span>The company is invented for practice. The <em>frameworks and model answers</em> come straight from your Unit III decks. Treat the case as your stimulus; treat the answers as course-faithful.</div>
+  <div class="callout applied"><span class="h">📌 How to sit this mock</span>About 20 minutes, closed notes. For each question: <strong>name it → number the parts → explain briefly → add the reading's example.</strong> Then self-grade with the ☐ score-checks.</div>
 
-  <div class="callout applied"><span class="h">📌 How to sit this mock</span>90-minute timer. Read the case once, underline the facts. For each question: <strong>name the framework → list its parts (labeled) → tie each part to a fact in the case.</strong> Only then reveal and self-grade against the point split. Writing prose instead of labeled, case-anchored parts is where points leak.</div>
+  <h2 class="sec">The quiz — answer first, then reveal</h2>
 
-  <h2 class="sec">The case</h2>
-  <div class="card">
-    <h3 style="margin-bottom:8px">CaféDirecto Negocios — from subscriptions to supplying businesses</h3>
-    <p class="small" style="margin-bottom:10px">Practice stimulus · fictional</p>
-    <p>CaféDirecto, a Chilean specialty-coffee roaster known for its direct-to-consumer home subscription, has launched <strong>CaféDirecto Negocios</strong>, a B2B unit that supplies beans, espresso machines, and maintenance to offices, cafés, and restaurants. The platform offers wholesale pricing, corporate accounts with purchase permissions for staff, consolidated monthly invoicing, verified delivery logistics, and financing for equipment.</p>
-    <p>The company says it moved into B2B because business clients buy <strong>frequently and in larger volumes, with higher average tickets and far lower churn</strong> than home subscribers, and because the office and HoReCa (hotel/restaurant/café) segment is growing as companies bring staff back on-site. Contracts are typically annual and renewable.</p>
-    <p>A restaurant group evaluating CaféDirecto Negocios is weighing it against two incumbents. Its head barista wants bean quality and consistency; the operations manager wants reliable delivery and quick machine repair (downtime costs money); finance wants favourable payment terms; and the owner wants the whole deal to fit the group's premium positioning. One franchisee has raised doubts about switching away from a supplier they've used for years.</p>
-    <p>Early results: 40 business accounts in the first quarter, strong repeat ordering, but slow sales cycles — some deals take two to three months to close, and a few stall after the initial proposal.</p>
-  </div>
-
-  <h2 class="sec">The questions — answer first, then reveal</h2>
-
-  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Q1 · 20 pts</span>Why did CaféDirecto launch a B2B unit? Name and describe at least 3 B2B-vs-B2C differences that support the decision.</summary>
+  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Q1 · 5 pts</span>The reading describes four concentric circles of market opportunity. Name them from outermost to innermost and define each.</summary>
     <div class="ans">
-      <p><strong>Why (≈6 pts):</strong> because the B2B opportunity is more valuable — business clients buy <em>frequently, in larger volumes, with higher average tickets and lower churn</em>, and the office/HoReCa segment is growing with annual renewable contracts. That's a bigger, more stable revenue pool than one-off home subscribers.</p>
-      <p><strong>≥3 differences, each tied to the case (≈14 pts — ~3 per difference + justification):</strong></p>
       <ul class="clean">
-        <li><strong>Volume &amp; value</strong> — businesses order large, recurring volumes with higher tickets (vs sporadic home orders) → more revenue per client.</li>
-        <li><strong>Length of relationship</strong> — annual renewable contracts vs a cancellable consumer subscription → retention &amp; lifetime value.</li>
-        <li><strong>Complexity of the process</strong> — multiple people decide (barista, ops, finance, owner) and cycles run 2–3 months → needs corporate accounts, invoicing, financing.</li>
-        <li><strong>Purchase criteria</strong> — driven by ROI/efficiency (uptime, delivery reliability, terms) not personal taste → the platform's verified logistics &amp; repair answer this.</li>
+        <li><strong>1) Potential market</strong> — consumers interested in the offering but lacking sufficient income or access.</li>
+        <li><strong>2) Available market</strong> — consumers with interest, sufficient income and access.</li>
+        <li><strong>3) Target market</strong> — the segment of the available market the company chooses to pursue, fitting its positioning, capabilities and advantages.</li>
+        <li><strong>4) Penetrated market</strong> — actual customers who have bought the company's products.</li>
       </ul>
-      <p class="small">Score-check: ☐ the "bigger/stable opportunity" reason ☐ ≥3 named differences ☐ each justified against the case.</p>
+      <p class="small">Score-check: ☐ all 4 in the right order ☐ "income or access" for potential ☐ all three conditions for available ☐ penetrated = actual buyers.</p>
     </div></details>
 
-  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Q2 · 25 pts</span>Walk the 5-step buying process for the restaurant group choosing a coffee supplier, comparing B2B vs B2C at each step. Which step is most complex in B2B, and why?</summary>
+  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Q2 · 5 pts</span>Explain the difference between market potential and the demand forecast, and give the formula for market potential.</summary>
     <div class="ans">
-      <p><strong>The 5 steps applied + compared (≈19 pts):</strong></p>
-      <ul class="clean">
-        <li><strong>Need Recognition</strong> — the group needs a reliable coffee supply/equipment (operational need). <em>B2B:</em> triggered by a business goal/contract renewal; <em>B2C:</em> a personal craving/running out.</li>
-        <li><strong>Information Search</strong> — compares suppliers, requests quotes/demos. <em>B2B:</em> formal, multi-source, verified references; <em>B2C:</em> quick, personal sources/reviews.</li>
-        <li><strong>Evaluation of Alternatives</strong> — scores CaféDirecto vs 2 incumbents on quality, delivery, repair, terms, fit. <em>B2B:</em> multi-criteria, several decision-makers; <em>B2C:</em> individual, often emotional/heuristic.</li>
-        <li><strong>Purchase Decision</strong> — needs internal approvals, finance sign-off, contract. <em>B2B:</em> slow, formal; <em>B2C:</em> immediate.</li>
-        <li><strong>Post-Purchase</strong> — reviews uptime, delivery, supplier performance for renewal. <em>B2B:</em> drives the long-term relationship; <em>B2C:</em> satisfaction/repeat or churn.</li>
-      </ul>
-      <p><strong>Most complex in B2B (≈6 pts):</strong> <strong>Evaluation of Alternatives</strong> — because multiple decision-makers (barista, operations, finance, owner) weigh different, sometimes conflicting criteria, making it longer and more data-driven. <span class="small">(Second-best answer: Information Search.)</span></p>
-      <p class="small">Score-check: ☐ all 5 steps ☐ each compared B2B vs B2C ☐ each applied to the case ☐ named Evaluation + why.</p>
+      <p><strong>Market potential</strong> is the maximum sales available to all firms in an industry — the limit demand approaches as industry marketing investment tends to infinity ("what's possible"). The <strong>demand forecast</strong> is the demand expected at the <em>anticipated</em> level of marketing investment and environment — a realistic point on the S-curve ("what's probable").</p>
+      <p><strong>Formula:</strong> Market potential = number of potential buyers × average quantity purchased per period × price per unit (e.g. 100M × 3 × $20 = $6B).</p>
+      <p class="small">Score-check: ☐ potential = theoretical maximum/ceiling ☐ forecast = expected/realistic ☐ formula with all 3 factors.</p>
     </div></details>
 
-  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Q3 · 20 pts</span>Build the power map / buying centre for the restaurant group's decision. Identify the roles (a real person/area for each) and say who has the most influence, with justification.</summary>
+  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Q3 · 5 pts</span>Name the six demand-forecasting methods in the reading. Choose one and give one strength, one weakness and when it is best used.</summary>
     <div class="ans">
-      <p><strong>Roles (≈14 pts — a WHO for each, not "the company"):</strong></p>
-      <ul class="clean">
-        <li><strong>Initiator</strong> — operations manager (raises the need to switch/renew).</li>
-        <li><strong>Influencer</strong> — head barista (quality/consistency specs).</li>
-        <li><strong>Decider</strong> — the owner (final call; must fit premium positioning).</li>
-        <li><strong>Buyer</strong> — finance (negotiates terms, places/pays the order).</li>
-        <li><strong>User</strong> — baristas &amp; staff who use the beans/machines.</li>
-        <li><strong>Gatekeeper</strong> — the skeptical franchisee (controls info/can stall the switch, but isn't the decider).</li>
-      </ul>
-      <p><strong>Most influential + why (≈6 pts):</strong> the <strong>owner (decider)</strong> holds most power — they approve the deal and judge fit with the group's premium strategy; without them it doesn't close. (Defensible alternative: operations, if uptime is the make-or-break criterion — justify from the case.)</p>
-      <p class="small">Score-check: ☐ all 6 roles as real people/areas ☐ named the most influential ☐ justified from the case.</p>
+      <p><strong>1) Buyer survey · 2) Sales force composite · 3) Expert opinion (Delphi) · 4) Historical sales analysis (time series) · 5) Causal models · 6) Market testing.</strong></p>
+      <p><em>Example choice — Sales force composite:</em> strength = uses frontline knowledge of customers and competitors; weakness = <strong>sandbagging</strong> (reps forecast low to beat quota); best for B2B firms with defined territories and long sales cycles.</p>
+      <p class="small">Score-check: ☐ all 6 named (≈3 pts) ☐ one strength ☐ one weakness ☐ "best used for" (≈2 pts).</p>
     </div></details>
 
-  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Q4 · 20 pts</span>Use the Value Formula and the KANO model to explain how CaféDirecto Negocios creates value for an office client.</summary>
+  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Q4 · 5 pts</span>What are the consequences of over-estimating and of under-estimating demand? Give the reading's example for each.</summary>
     <div class="ans">
-      <p><strong>Value Formula (≈10 pts): Value = Benefits ÷ Costs.</strong> <em>Benefits</em> — functional (reliable supply, quick repair, consolidated invoicing) and emotional (confidence, a premium coffee experience for staff/clients). <em>Costs</em> — price (wholesale pricing lowers it), hassle (corporate accounts, one monthly invoice, verified logistics cut effort), insecurities (financing + verified delivery reduce perceived risk). It raises value by lifting benefits and cutting all three costs.</p>
-      <p><strong>KANO (≈10 pts):</strong> <em>Basic</em> = coffee arrives on time and machines work (fail → very dissatisfied). <em>Performance</em> = bean quality, price, repair speed (more/better = more satisfied; used to compare suppliers). <em>Excitement</em> = unexpected delighters, e.g. free barista training or usage analytics (a plus, not a must).</p>
-      <p class="small">Score-check: ☐ formula with benefits (functional/emotional) ☐ the 3 cost types ☐ KANO's 3 need types applied.</p>
+      <p><strong>Over-estimation:</strong> excess inventory, spoilage, carrying costs and markdowns; long term, lower profitability, lost investor confidence, strained partners and layoffs. <em>BlackBerry (2013) wrote off nearly $1B of Z10 inventory.</em></p>
+      <p><strong>Under-estimation:</strong> lost sales, lost shelf space, customer/channel conflict and rush-order costs; long term, market-share loss, customer attrition and brand damage. <em>Nintendo (2017) Switch stockouts sent buyers to rival consoles.</em></p>
+      <p class="small">Score-check: ☐ ≥2 consequences each side ☐ BlackBerry for over ☐ Nintendo for under.</p>
     </div></details>
 
-  <details class="q" style="border-left-color:var(--accent)"><summary><span class="type">Q5 · 15 pts</span>Which factors most influence the café owner's supplier choice, and map the 3 customer-experience stages for a new business client.</summary>
-    <div class="ans">
-      <p><strong>Factors (≈8 pts — name the group + the factor):</strong> mainly <strong>Personal/economic</strong> (budget, the business's economic situation), <strong>Psychological</strong> (beliefs about quality, brand perception), <strong>Social</strong> (reference groups — peer restaurants' experience), and <strong>Circumstantial</strong> (high-involvement decision; the owner's role in it). <em>Tie each to the case.</em></p>
-      <p><strong>3 CX stages (≈7 pts):</strong> <strong>Pre-purchase</strong> — discovery, demo/quote, evaluating vs incumbents; <strong>Purchase</strong> — contract, onboarding the corporate account, first delivery &amp; install; <strong>Post-purchase</strong> — ongoing supply, repair/service, reviews &amp; renewal.</p>
-      <p class="small">Score-check: ☐ named factor groups + applied ☐ all 3 CX stages applied to a business client.</p>
-    </div></details>
+  <h2 class="sec">Calculation drill</h2>
+  <div class="callout trap"><span class="h">⧉ Outside — invented numbers, not from your course materials</span>These figures are made up for practice. The <strong>formulas and method</strong> are exactly the reading's. Each answer was calculated independently.</div>
 
-  <div class="callout take"><span class="h">✅ After you self-grade (out of 100)</span>Every lost point is almost always one of two habits: you didn't <strong>label/enumerate the parts</strong>, or you didn't <strong>anchor each part to a fact in the case.</strong> Those two are exactly what the rubric ticks. Want a fresh B2B case to run again cold? Ask me — reps are the whole game here.</div>
+  <details class="q"><summary><span class="type">Calc 1</span>A country has 2 million buyers of a product; each buys 4 units a year at $5. What is the market potential?</summary>
+    <div class="ans">2,000,000 × 4 × $5 = <strong>$40,000,000</strong> per year.</div></details>
+
+  <details class="q"><summary><span class="type">Calc 2</span>Buyer survey: 10% "definitely" (weight 0.95), 20% "probably" (0.60), 30% "might" (0.25). Target market = 200,000 households; 70% of stated intent converts. Forecast?</summary>
+    <div class="ans">Weighted intent = 9.5% + 12% + 7.5% = <strong>29%</strong>. Forecast = 200,000 × 29% × 70% = <strong>40,600 units</strong>.</div></details>
+
+  <details class="q"><summary><span class="type">Calc 3</span>Monthly sales: 80, 90, 100, 95, 110, 105 (oldest → newest). Compute the 3-month moving average and the weighted moving average (0.5 / 0.3 / 0.2, newest → oldest).</summary>
+    <div class="ans">MA = (95 + 110 + 105) ÷ 3 = <strong>103.33</strong>. WMA = 105×0.5 + 110×0.3 + 95×0.2 = 52.5 + 33 + 19 = <strong>104.5</strong>.</div></details>
+
+  <details class="q"><summary><span class="type">Calc 4</span>Exponential smoothing with α = 0.4: last forecast 100, actual sales 110. Next forecast? Would α = 0.9 make it more or less responsive?</summary>
+    <div class="ans">0.4 × 110 + 0.6 × 100 = 44 + 60 = <strong>104</strong>. α = 0.9 → <strong>more</strong> responsive (0.9×110 + 0.1×100 = 109), suited to volatile markets.</div></details>
+
+  <div class="callout take"><span class="h">✅ After you self-grade (out of 20)</span>Lost points usually come from a <strong>missing item in a list</strong> (e.g. naming 5 of the 6 methods) or a <strong>concept with no example</strong>. Re-drill the 🌙 Last Read prompts for any list you couldn't produce complete.</div>
 </section>
 <!-- ============ MOCK TEST END ============ -->
+
 
 <!-- ================= READING QUIZ 2 ================= -->
 <section class="panel" id="rq2">
@@ -1119,6 +1123,189 @@ footer.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:50px
   <div class="callout take"><span class="h">✅ The reading in one breath</span>Every brand's buyers are mostly <strong>light buyers</strong> (skewed NBD; the average isn't typical). The <strong>80/20</strong> rule is really ~<strong>60/20</strong>, and the <strong>law of buyer moderation</strong> means today's heavy buyers get lighter and light/non-buyers get heavier. Brands grow by gaining buyers in <strong>every group, mostly through penetration</strong> — so heavy-buyer tactics (loyalty programs, promotions) disappoint. The fix: <strong>acquisition + reaching all buyers</strong> through <strong>sophisticated mass marketing</strong>.</div>
 </section>
 
+<!-- ================= READING QUIZ 4 ================= -->
+<section class="panel" id="rq4">
+  <div class="banner">
+    <div class="lbl">Reading Quiz 4 · assigned reading</div>
+    <h2>"Demand Forecasting: A Guide for Marketing Professionals"</h2>
+    <p>Rodrigo Guesalaga, PhD (written with the help of AI tools), 13 pages. Big idea in one line: <strong>demand forecasting = estimating how much prospective customers will buy in a specific period</strong> — the foundation every department plans on. <strong>Market potential asks "What's possible?"; the demand forecast asks "What's probable?"</strong> The best forecasts <strong>combine several methods</strong>.</p>
+  </div>
+
+  <div class="callout trap"><span class="h">⚠️ Before you study this</span>(1) Built <strong>only</strong> from the PDF in the folder (<em>Demand+Forecasting+A+Guide+for+Marketing+Professionals.pdf</em>) — real text, every page read, every worked number recalculated. (2) The reading contains <strong>four small inconsistencies of its own</strong>; they are flagged where they appear (⚠️ Source note) so they don't trip you up. (3) Six methods, several formulas: expect at least one <strong>"name the N…"</strong> question and possibly a <strong>small calculation</strong>.</div>
+
+  <h2 class="sec">1 · What demand forecasting is — and why it matters</h2>
+  <div class="card">
+    <p><strong>Definition:</strong> estimating the <strong>quantity of products or services that prospective customers will be willing to purchase or contract during a specific time period.</strong> Simple to say, complex to do: it requires understanding market dynamics, consumer behaviour, competitive forces and environmental factors.</p>
+    <p><strong>Why it matters:</strong> it is the foundation for strategic plans, resource allocation and coordination across functions. Accurate forecasting separates thriving companies from those stuck with inefficiencies, missed opportunities and dissatisfied customers.</p>
+  </div>
+
+  <h2 class="sec">2 · The 3 key dimensions of market demand: WHAT · WHEN · WHERE</h2>
+  <div class="grid">
+    <div class="card"><h4>WHAT — product categories &amp; varieties</h4><p>Categories, subcategories and individual <strong>stock-keeping units (SKUs)</strong>. A smartphone maker forecasts by model (flagship/mid-range/budget), storage, colour, regional variant. <strong>Level of aggregation</strong> matters: too broad ("consumer electronics") hides segment trends; too granular (single SKUs) adds noise.</p></div>
+    <div class="card"><h4>WHEN — time periods &amp; urgency</h4><p><strong>Short-term (0–3 months):</strong> operations, inventory, tactical marketing. <strong>Medium-term (3–12 months):</strong> promotions, seasonal inventory, capacity. <strong>Long-term (1–5+ years):</strong> market entry, facility expansion, product development. <strong>Urgency:</strong> emergency (replacement parts) ≠ planned (annual tech upgrade) ≠ aspirational (luxury goods).</p></div>
+    <div class="card"><h4>WHERE — geography &amp; channels</h4><p><strong>Geographic markets</strong> (country → neighbourhood) · <strong>distribution channels</strong> (retail, e-commerce, apps, marketplaces, direct sales) · <strong>point of consumption</strong> (on-premise, off-premise, home delivery, hybrid). Example: a coffee chain forecasts urban vs suburban, morning vs afternoon, dine-in vs mobile order-ahead.</p></div>
+  </div>
+
+  <h2 class="sec">3 · Types of markets: the 4 concentric circles</h2>
+  <p class="sub">From the outermost circle to the innermost. Know all four, in order, with a definition and the smartphone example.</p>
+  <div class="card" style="padding:8px 18px">
+    <div class="trackrow"><span class="num">1</span><div class="txt"><strong>Potential market</strong><span>Consumers who have <strong>expressed interest</strong> but lack <strong>sufficient income or access</strong>. Not immediate sales — matters for long-term planning. <em>Ex:</em> university students who want a $1,000+ flagship phone but can't afford it; cultivated via aspirational marketing, student discounts on older models, trade-ins.</span></div></div>
+    <div class="trackrow"><span class="num">2</span><div class="txt"><strong>Available market</strong><span>Consumers with all <strong>three</strong>: <strong>interest + sufficient income + access</strong>. The realistic pool of potential customers. <em>Ex:</em> mid-level professionals earning $50k–$100k who want mid-range/premium phones and can buy them in stores or online.</span></div></div>
+    <div class="trackrow"><span class="num">3</span><div class="txt"><strong>Target market</strong><span>The segment of the available market the company <strong>chooses to pursue</strong>, matching its positioning, capabilities and competitive advantages (the "qualified" portion). <em>Ex:</em> a premium brand targeting professionals aged 25–35, household income over $75k, who value cutting-edge tech, design and status.</span></div></div>
+    <div class="trackrow"><span class="num">4</span><div class="txt"><strong>Penetrated market</strong><span>The innermost circle: <strong>actual customers</strong> who have bought. Penetrated vs target reveals the <strong>penetration rate</strong> and growth room. <em>Ex:</em> repeat buyers of several models, maybe in loyalty programs; their behaviour, satisfaction and lifetime value feed repeat-purchase and retention forecasts.</span></div></div>
+  </div>
+  <div class="callout trap"><span class="h">⚠️ Trap — potential vs available</span>Both groups have <strong>interest</strong>. The difference: the potential market lacks <strong>income or access</strong>; the available market has <strong>interest + income + access</strong>. A definition that drops one of the three loses the point.</div>
+
+  <h2 class="sec">4 · Calculating market potential</h2>
+  <div class="card">
+    <p><strong>Market potential</strong> = the <strong>maximum sales available to all companies in an industry</strong> during a specific period, assuming certain levels of marketing effort and environmental conditions.</p>
+    <p style="font-size:1.05rem;color:var(--ink)"><strong>Market Potential = Number of potential buyers × Average quantity purchased per period × Price per unit</strong></p>
+    <p><strong>Book-publishing example:</strong> 100 million buyers × 3 books/year × $20 = <strong>$6 billion</strong>.</p>
+    <p><strong>Segmented further:</strong> Fiction 60M × 2 × $18 = $2.16B · Non-fiction 45M × 2.5 × $22 = $2.475B · Children's 30M × 4 × $12 = $1.44B.</p>
+  </div>
+  <div class="callout trap"><span class="h">⚠️ Trap — don't add the segments</span>Segments <strong>overlap</strong> (many buyers buy several categories), so the segment figures must <strong>not simply be summed</strong>. The lesson: understand customer behaviour across categories.</div>
+
+  <h2 class="sec">5 · Market potential vs. demand forecast — the S-curve</h2>
+  <div class="grid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="card" style="border-top:3px solid #83c497"><h4>Potential market (the ceiling) — "What's possible?"</h4><p>The <strong>limit</strong> demand approaches, within an assumed environment, as industry marketing investment tends toward <strong>infinity</strong>. A theoretical maximum.</p></div>
+    <div class="card" style="border-top:3px solid #8cbcd6"><h4>Demand forecast (a point) — "What's probable?"</h4><p>The level of market demand at an <strong>expected level of marketing investment</strong>, within an assumed environment. A <strong>realistic prediction</strong> of actual sales — one point on the curve.</p></div>
+  </div>
+  <div class="grid">
+    <div class="card"><h4>Bottom: minimum market demand</h4><p>Demand that exists even with <strong>zero marketing</strong>, because of: <strong>1)</strong> essential needs (basic food, utilities) · <strong>2)</strong> word-of-mouth &amp; organic awareness · <strong>3)</strong> derived demand from other products/services.</p></div>
+    <div class="card"><h4>Middle: accelerating growth</h4><p>As marketing investment rises, demand grows <strong>at an accelerating rate</strong>, thanks to: brand awareness · distribution expansion · product trial &amp; adoption · network effects (in some markets).</p></div>
+    <div class="card"><h4>Top: maturity / saturation</h4><p>The curve <strong>flattens</strong> as it approaches market potential: <strong>diminishing returns</strong> — each extra dollar adds less demand. Demand approaches but <strong>never exceeds</strong> market potential.</p></div>
+    <div class="card"><h4>Environmental factors</h4><p>Economic conditions, regulation, technological change and competitive dynamics all affect how much of the potential is realised.</p></div>
+  </div>
+
+  <h2 class="sec">6 · Who uses the forecast (5 departments)</h2>
+  <p class="sub">Forecasts are prepared by Marketing &amp; Sales and feed virtually every area. Know one use + the example for each.</p>
+  <div class="grid">
+    <div class="card"><h4>Finance</h4><p><strong>Investment decisions</strong> (new plant, new markets, new lines) and <strong>financial planning</strong> (budgets, cash flow, statements). Over-estimating → excess borrowing costs; under-estimating → missed investments, too little working capital. <em>Ex:</em> a $50M beverage plant needs 5-year forecasts; if 20% optimistic, the whole investment may become unprofitable.</p></div>
+    <div class="card"><h4>Production</h4><p><strong>Capacity planning:</strong> regular runs vs overtime, seasonal production/inventory building, maintenance in low-demand periods, make-or-buy. <em>Ex:</em> a carmaker forecasting 100,000 units/year; a 15% error means idle capacity or lost sales and brand damage.</p></div>
+    <div class="card"><h4>Procurement (Purchasing)</h4><p>Negotiate volume contracts · set safety stock · schedule raw-material deliveries · manage suppliers. <em>Ex:</em> a food maker orders holiday inputs 3–6 months ahead; over-forecast = expired ingredients, under-forecast = stockouts.</p></div>
+    <div class="card"><h4>Supply chain (incl. logistics)</h4><p>Fleet size/composition, warehouse space and locations, distribution network design, peak-season capacity. <em>Ex:</em> an e-commerce retailer secures warehouses, temporary workers and delivery capacity months before Black Friday–Cyber Monday.</p></div>
+    <div class="card"><h4>Human Resources</h4><p>Hiring timelines by role, training, compensation/benefits budgeting, restructuring. <em>Ex:</em> a retail chain forecasting 15% growth must hire and train hundreds of staff; too late = understaffed peaks, too early = needless labour cost.</p></div>
+  </div>
+
+  <h2 class="sec">7 · The cost of getting it wrong</h2>
+  <div class="grid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="card" style="border-top:3px solid #e3ca6a"><h4>Over-estimation</h4><p><strong>Short-term:</strong> excess inventory · product spoilage/obsolescence · financial carrying costs (interest) · price markdowns (hurt positioning &amp; margins).</p><p><strong>Long-term:</strong> reduced profitability · loss of investor confidence · strained partnerships (suppliers, distributors) · employee morale (layoffs after over-expansion).</p><p><strong>Example — BlackBerry (2013):</strong> wrote off nearly <strong>$1 billion</strong> in inventory after over-estimating demand for the <strong>Z10</strong>; consumers rejected it, accelerating the decline and leading to thousands of layoffs.</p></div>
+    <div class="card" style="border-top:3px solid #d17a3f"><h4>Under-estimation</h4><p><strong>Short-term:</strong> lost sales · distribution loss (shelf space goes to rivals) · customer/channel conflicts · margin erosion (rush orders, expedited production).</p><p><strong>Long-term:</strong> market-share loss · customer attrition · employee turnover · growth constraints (conservative forecasts become self-fulfilling) · brand damage (unreliable reputation).</p><p><strong>Example — Nintendo Switch (2017):</strong> launch demand under-estimated; months of stockouts frustrated consumers and retailers, and some buyers bought competing consoles instead.</p></div>
+  </div>
+
+  <h2 class="sec">8 · The 6 forecasting methods</h2>
+  <p class="sub">Effective forecasting combines approaches, balancing <strong>subjective judgment</strong> with <strong>objective data analysis</strong>. Name all six, in order: <strong>1) Buyer survey · 2) Sales force composite · 3) Expert opinion (Delphi) · 4) Historical sales analysis (time series) · 5) Causal models · 6) Market testing.</strong></p>
+
+  <details class="q" open><summary><span class="type">Method 1</span>Buyer Survey Method — ask prospective customers about their purchase intentions</summary>
+    <div class="ans">
+      <p><strong>How:</strong> surveys, interviews or focus groups. <strong>Process:</strong> 1) sample design (typically 300–1,000+ respondents) · 2) questionnaire with intention levels and weights — <em>definitely will buy</em> 90–100% · <em>probably will</em> 50–70% · <em>might</em> 20–30% · <em>probably won't</em> 5–10% · <em>definitely won't</em> 0% · 3) administration (online, phone, in person, mixed) · 4) analysis: weight responses by probability and extrapolate to the market.</p>
+      <p><strong>Strengths:</strong> direct insight into customer thinking · captures qualitative factors (feature preferences) · useful for new products with no history · reveals purchase barriers. <strong>Weaknesses:</strong> stated intentions exceed behaviour (<strong>intention-action gap</strong>) · expensive/slow for large markets · respondent bias (social desirability, satisficing) · the environment can change between survey and purchase.</p>
+      <p><strong>Best for:</strong> B2B markets with few large buyers · new product concepts · validating other methods.</p>
+      <p><strong>Worked example (electric SUV, 2,000 surveyed):</strong> 15% definitely × 0.95 = 14.25% · 25% probably × 0.60 = 15% · 30% might × 0.25 = 7.5% → <strong>weighted intent 36.75%</strong>. Target market 5,000,000 households, 70% of intent converts: 5,000,000 × 36.75% × 70% = <strong>1,286,250 units</strong> (before any extra conservative adjustments).</p>
+    </div></details>
+
+  <details class="q"><summary><span class="type">Method 2</span>Sales Force Composite — bottom-up aggregation of salespeople's forecasts</summary>
+    <div class="ans">
+      <p><strong>Process:</strong> 1) train the sales team · 2) territory-level forecasts by account, product line and period (monthly/quarterly) · 3) regional aggregation by sales managers · 4) corporate consolidation · 5) <strong>reconciliation</strong> of the bottom-up forecast with top-down market analysis.</p>
+      <p><strong>Strengths:</strong> frontline knowledge of customers and competitors · sales accountability and buy-in · captures geographic/local variation · suits relationship-based B2B selling. <strong>Weaknesses:</strong> conflicting incentives (<strong>sandbagging</strong> — forecasting low to make quota) · limited view of broad trends and strategy · inconsistent methods across reps · time-consuming coordination.</p>
+      <p><strong>Best for:</strong> B2B firms with defined territories · relationship-driven markets · long sales cycles with a visible pipeline.</p>
+      <p><strong>Example (HVAC maker, 50 reps):</strong> Rep A: 75 reorders + 15 prospect conversions + 10 new opportunities = <strong>100 units</strong>; Rep B: 60 + 20 + 5 = <strong>85 units</strong>. Repeated for all reps, reviewed regionally, consolidated nationally → <strong>4,250 units</strong> for the quarter.</p>
+    </div></details>
+
+  <details class="q"><summary><span class="type">Method 3</span>Expert Opinion — synthesise forecasts from knowledgeable outsiders (the Delphi method)</summary>
+    <div class="ans">
+      <p><strong>Who:</strong> industry experts, thought leaders, consultants, distributors, suppliers. <strong>Delphi method</strong> (structured to reduce group-dynamics bias): 1) Round 1 — experts forecast <strong>independently</strong> with rationale · 2) coordinator summarises (mean, median, range) and shares <strong>anonymously</strong> · 3) Round 2 — experts revise, explaining big deviations · 4) repeat until consensus or diminishing returns (typically <strong>2–4 rounds</strong>) · 5) final forecast = consensus or weighted average.</p>
+      <p><strong>Strengths:</strong> specialised outside knowledge · anonymity reduces <strong>groupthink</strong> and dominance by assertive people · iterative refinement · useful when history is limited/obsolete. <strong>Weaknesses:</strong> slow multi-round process · expert availability and cost · expert bias/overconfidence · hard to judge credibility.</p>
+      <p><strong>Best for:</strong> emerging markets · technological disruption · long-term forecasts (3–10 years) · entry into unfamiliar categories.</p>
+      <p><strong>Example (gene therapy, 10-person panel: 3 oncologists, 2 health economists, 2 insurance medical directors, 2 patient advocates, 1 regulatory consultant):</strong> Round 1 range 5,000–50,000 patients → Round 2 converges to 12,000–35,000 → Round 3 narrows to 16,000–28,000 → final <strong>21,000 patients over 5 years</strong> (≈4,200 a year).</p>
+    </div></details>
+
+  <details class="q"><summary><span class="type">Method 4</span>Historical Sales Analysis (time series) — project past patterns forward</summary>
+    <div class="ans">
+      <p>Statistical techniques that find <strong>trends, seasonality and cycles</strong> in past sales. Four techniques (example data: last 6 months = 120, 135, 142, 138, 151, 148):</p>
+      <ul class="clean">
+        <li><strong>A. Moving average</strong> — average of the last <em>n</em> periods; smooths random fluctuations. 3-month: (138 + 151 + 148) ÷ 3 = <strong>145.67</strong>.</li>
+        <li><strong>B. Weighted moving average</strong> — more weight on recent periods (more responsive). Weights 0.5 / 0.3 / 0.2 (newest → oldest): 148×0.5 + 151×0.3 + 138×0.2 = 74 + 45.3 + 27.6 = <strong>146.9</strong>.</li>
+        <li><strong>C. Exponential smoothing</strong> — Forecast(t+1) = α × Sales(t) + (1 − α) × Forecast(t). α = 0.3, last forecast 140, actual 148: 0.3×148 + 0.7×140 = 44.4 + 98 = <strong>142.4</strong>. α near 1 = very responsive (volatile markets); α near 0 = stable, long-term emphasis (stable markets).</li>
+        <li><strong>D. ARIMA</strong> (AutoRegressive Integrated Moving Average) — captures trend, seasonality and autocorrelation. <strong>AR</strong> = current value depends on previous values · <strong>I</strong> = differencing to reach stationarity · <strong>MA</strong> = current value depends on previous forecast errors. <em>Ex:</em> a retailer with 5% annual growth, December = 3× January, and high months following high months.</li>
+      </ul>
+      <p><strong>Strengths:</strong> objective, data-driven · handles many products efficiently · updates automatically · well-established theory. <strong>Weaknesses:</strong> assumes the past continues (vulnerable to <strong>structural breaks</strong>) · needs lots of history · ignores causal factors (campaigns, price changes) · poor for new products or fast-changing markets.</p>
+      <p><strong>Best for:</strong> mature products with stable demand · large portfolios · short- to medium-term operational forecasts.</p>
+    </div></details>
+
+  <details class="q"><summary><span class="type">Method 5</span>Causal Models — regression linking demand to its drivers</summary>
+    <div class="ans">
+      <p><strong>Sales(t) = β₀ + β₁·Price + β₂·Advertising + β₃·Income + β₄·Competition + ε</strong> — β₀ = baseline sales; β₁…β₄ = each variable's impact; ε = error term (unexplained variation).</p>
+      <p><strong>Example (refrigerators, 20 quarterly observations):</strong> Sales = 50,000 − 80×Price + 0.15×Advertising + 2.5×Income + 30×HousingStarts − 50×CompPrice. Reading: +$1 price → −80 units (price elasticity) · +$1,000 advertising → +150 units · +1,000 housing starts → +30 units · competitor +$1 → +50 units (substitution effect). Next quarter (price $1,200; advertising $500,000; income $55,000; housing starts 400 thousand; competitor $1,300): 50,000 − 96,000 + 75,000 + 137,500 + 12,000 − 65,000 = <strong>113,500 units</strong>.</p>
+      <p><strong>Strengths:</strong> explicit cause-and-effect · "what-if" scenarios · quantifies marketing's impact · includes external factors. <strong>Weaknesses:</strong> heavy data collection · assumes stable relationships · multicollinearity and specification errors · needs statistical expertise.</p>
+      <p><strong>Best for:</strong> strategic planning and scenario analysis · marketing ROI (return on investment) optimisation · markets with well-understood drivers · firms with strong analytics.</p>
+      <div class="callout trap" style="margin-bottom:0"><span class="h">⚠️ Source note — two inconsistencies in the reading's example</span>(1) Housing starts are listed as "400,000" but the calculation uses <strong>400</strong> (i.e. thousands — consistent with "+30 units per 1,000 starts"). (2) The text says a 1% income rise raises sales 2.5%, but the formula treats income linearly (2.5 units per $1). The <strong>final answer, 113,500, is what the reading calculates</strong>; if asked, reproduce the reading's arithmetic.</div>
+    </div></details>
+
+  <details class="q"><summary><span class="type">Method 6</span>Market Testing — launch small, measure real behaviour, then roll out</summary>
+    <div class="ans">
+      <p><strong>A. Geographic test markets</strong> — a snack brand tests a flavour for 12 weeks: Portland (media/TV-digital) 2.5% share, $4.8M · Columbus (trade promotion, displays) 1.8%, $3.2M · Austin (grassroots sampling) 3.1%, $5.1M → grassroots works best; 2.5% national share ≈ <strong>$250M</strong> annual forecast.</p>
+      <p><strong>B. Channel testing</strong> — a skincare line for 60 days: own website (800 units/week nationally) · 50 Sephora stores (<strong>12 units/store/week</strong>, strongest) · Macy's (4 units/store/week) → informs distribution strategy and forecasts.</p>
+      <p><strong>C. Digital A/B testing</strong> — a SaaS (software-as-a-service) firm: A = $29/month, 8% conversion, $23,200 MRR (monthly recurring revenue) · B = $39/month with more features, 6.5% conversion, $25,350 MRR → <strong>B earns more despite converting less</strong>.</p>
+      <p><strong>Strengths:</strong> <strong>real behaviour, not stated intentions</strong> · tests the whole marketing mix realistically · surfaces operational issues · reduces risk of large failures. <strong>Weaknesses:</strong> expensive and slow · competitors see the test · results may not generalise nationally · small samples raise uncertainty.</p>
+      <p><strong>Best for:</strong> major launches · big strategy changes · high-risk, high-investment decisions · when testing cost is justified by lower failure risk.</p>
+      <div class="callout trap" style="margin-bottom:0"><span class="h">⚠️ Source note</span>The A/B figures only work out if <strong>each version</strong> got 10,000 visits (10,000 × 8% × $29 = $23,200), even though the text says "after 10,000 visits" with a 50/50 split. Also, the strengths/weaknesses tables for Methods 5 and 6 are headed "Time Series" in the PDF — a copy-paste slip; they refer to causal models and market testing.</div>
+    </div></details>
+
+  <h2 class="sec">The 6 methods side by side</h2>
+  <div class="card" style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;color:var(--ink2)">
+      <tr style="color:var(--ink);text-align:left;border-bottom:1px solid var(--line)"><th style="padding:6px">Method</th><th style="padding:6px">Data comes from</th><th style="padding:6px">Best used for</th><th style="padding:6px">Signature weakness</th></tr>
+      <tr style="border-bottom:1px solid var(--line)"><td style="padding:6px"><strong>1 Buyer survey</strong></td><td style="padding:6px">Customers' stated intentions</td><td style="padding:6px">Few large B2B buyers; new concepts</td><td style="padding:6px">Intention-action gap</td></tr>
+      <tr style="border-bottom:1px solid var(--line)"><td style="padding:6px"><strong>2 Sales force composite</strong></td><td style="padding:6px">Salespeople, territory by territory</td><td style="padding:6px">B2B with territories, long cycles</td><td style="padding:6px">Sandbagging</td></tr>
+      <tr style="border-bottom:1px solid var(--line)"><td style="padding:6px"><strong>3 Expert opinion / Delphi</strong></td><td style="padding:6px">Outside experts, anonymous rounds</td><td style="padding:6px">Little history; disruption; 3–10 yr</td><td style="padding:6px">Slow, costly; expert bias</td></tr>
+      <tr style="border-bottom:1px solid var(--line)"><td style="padding:6px"><strong>4 Historical (time series)</strong></td><td style="padding:6px">Past sales patterns</td><td style="padding:6px">Mature, stable products; short–medium term</td><td style="padding:6px">Assumes the past continues</td></tr>
+      <tr style="border-bottom:1px solid var(--line)"><td style="padding:6px"><strong>5 Causal models</strong></td><td style="padding:6px">Drivers (price, ads, income…)</td><td style="padding:6px">Scenarios, marketing ROI</td><td style="padding:6px">Data/expertise heavy</td></tr>
+      <tr><td style="padding:6px"><strong>6 Market testing</strong></td><td style="padding:6px">Real behaviour in a limited launch</td><td style="padding:6px">Big, risky launches</td><td style="padding:6px">Expensive; rivals see it</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec">9 · Conclusion — what good forecasting systems share</h2>
+  <div class="callout take"><span class="h">✅ The 5 characteristics (name all five)</span><strong>1) Multiple methods</strong> (less reliance on one method's assumptions) · <strong>2) Regular updating</strong> · <strong>3) Forecast-accuracy tracking</strong> (learn from errors) · <strong>4) Stakeholder collaboration</strong> (finance, operations, sales) · <strong>5) Scenario planning</strong> (best / base / worst case). Forecasting is <strong>both an art and a science</strong>; no forecast is perfectly accurate, but systematic methods improve decisions — and firms that excel gain a competitive advantage.</div>
+
+  <h2 class="sec">Terms to know by name (recall-forcing)</h2>
+  <div class="grid">
+    <div class="card"><h4>Market potential</h4><p>Maximum sales available to all firms in an industry in a period, given assumed marketing effort and environment. Buyers × quantity × price.</p></div>
+    <div class="card"><h4>Demand forecast</h4><p>Expected demand at the expected level of marketing investment, in an assumed environment — "what's probable."</p></div>
+    <div class="card"><h4>Minimum market demand</h4><p>Baseline demand with zero marketing (essential needs, word-of-mouth, derived demand).</p></div>
+    <div class="card"><h4>Intention-action gap</h4><p>People say they'll buy more than they actually do — the buyer-survey method's main weakness.</p></div>
+    <div class="card"><h4>Sandbagging</h4><p>Salespeople forecasting low so they surely beat quota — the sales-force-composite weakness.</p></div>
+    <div class="card"><h4>Delphi method</h4><p>Anonymous, multi-round expert forecasting (typically 2–4 rounds) that converges on consensus while avoiding groupthink.</p></div>
+    <div class="card"><h4>Exponential smoothing (α)</h4><p>Forecast = α·actual + (1−α)·last forecast. High α = responsive (volatile markets); low α = stable.</p></div>
+    <div class="card"><h4>Structural break</h4><p>A change that breaks past patterns — why time-series forecasts fail for new products or fast-changing markets.</p></div>
+  </div>
+
+  <div class="callout applied"><span class="h">📌 How this connects to what you've studied</span>This reading belongs to <strong>Unit IV — Market Characterization</strong> (segmentation &amp; target selection; demand estimation &amp; forecasting). The <strong>target market</strong> circle is the "T" of <strong>STP</strong> (Unit II). And the <strong>penetrated market</strong> echoes Sharp's <strong>penetration</strong> (Reading Q3): the share of the market that actually buys.</div>
+
+  <h2 class="sec">✍️ Likely questions — produce first, then open</h2>
+  <p class="sub">Answer out loud or on paper before expanding. <span class="pill">⧉ Inferred from the reading + the professor's style (~4 questions × 5 pts; "name the N…", "name it + explain + example") — not an official pauta</span></p>
+
+  <details class="q"><summary><span class="type">Recall</span>Name and define the four types of market, from outermost to innermost, with an example.</summary>
+    <div class="ans"><strong>1) Potential</strong> — interested but lacking income or access (students wanting a $1,000 flagship phone). <strong>2) Available</strong> — interest + income + access (professionals earning $50k–$100k). <strong>3) Target</strong> — the segment of the available market the firm chooses to pursue (25–35-year-olds earning over $75k who value tech/design/status). <strong>4) Penetrated</strong> — actual customers (repeat buyers in loyalty programs).</div></details>
+
+  <details class="q"><summary><span class="type">Explain</span>What is the difference between market potential and the demand forecast? Give the market potential formula.</summary>
+    <div class="ans"><strong>Market potential</strong> = the ceiling demand approaches as industry marketing investment tends to infinity ("what's possible"). <strong>Demand forecast</strong> = demand at the <em>expected</em> marketing investment ("what's probable") — one realistic point on the S-curve. <strong>Formula:</strong> Market potential = number of potential buyers × average quantity per period × price per unit (e.g. 100M × 3 × $20 = $6B).</div></details>
+
+  <details class="q"><summary><span class="type">Recall</span>Name the six forecasting methods. Pick one and give a strength, a weakness and when it's best used.</summary>
+    <div class="ans"><strong>1) Buyer survey · 2) Sales force composite · 3) Expert opinion (Delphi) · 4) Historical sales analysis (time series) · 5) Causal models · 6) Market testing.</strong> E.g. <strong>Market testing:</strong> strength — real behaviour, not stated intentions; weakness — expensive and exposes the test to competitors; best for major, high-risk launches.</div></details>
+
+  <details class="q"><summary><span class="type">Compare</span>What happens when a firm over-estimates vs under-estimates demand? Give the reading's example for each.</summary>
+    <div class="ans"><strong>Over-estimation:</strong> excess inventory, spoilage, carrying costs, markdowns → long-term lower profit, lost investor confidence, layoffs. <em>BlackBerry Z10 (2013): ~$1B inventory write-off.</em> <strong>Under-estimation:</strong> lost sales, lost shelf space, angry customers, rush costs → long-term share loss, attrition, brand damage. <em>Nintendo Switch (2017): months of stockouts; buyers went to rival consoles.</em></div></details>
+
+  <details class="q"><summary><span class="type">Apply</span>Explain the Delphi method step by step and why it reduces bias.</summary>
+    <div class="ans">Round 1: experts forecast <strong>independently</strong> with reasons → a coordinator shares an <strong>anonymous</strong> summary (mean, median, range) → experts revise and justify deviations → repeat (2–4 rounds) until consensus → final consensus or weighted average. <strong>Anonymity</strong> prevents groupthink and dominance by assertive individuals. <em>Ex:</em> gene therapy panel converging on 21,000 patients over 5 years.</div></details>
+
+  <details class="q"><summary><span class="type">Calc</span>Last 3 months' sales: 138, 151, 148 (oldest → newest). Compute the 3-month moving average and the weighted moving average (0.5 / 0.3 / 0.2, newest → oldest).</summary>
+    <div class="ans">MA = (138 + 151 + 148) ÷ 3 = <strong>145.67</strong>. WMA = 148×0.5 + 151×0.3 + 138×0.2 = 74 + 45.3 + 27.6 = <strong>146.9</strong>. The weighted version leans toward recent months, so it reacts faster to change.</div></details>
+
+  <div class="callout take"><span class="h">✅ The reading in one breath</span>Forecasting estimates what customers will buy in a period, along <strong>WHAT / WHEN / WHERE</strong>. Markets nest as <strong>potential → available → target → penetrated</strong>. <strong>Market potential</strong> (buyers × quantity × price) is the ceiling — "what's possible"; the <strong>forecast</strong> is the probable point on the S-curve. Forecasts drive <strong>Finance, Production, Procurement, Supply Chain and HR</strong>, and errors either way are costly (<strong>BlackBerry</strong> over, <strong>Nintendo</strong> under). Use the <strong>6 methods</strong> — survey, sales force, Delphi, time series, causal, market testing — <strong>in combination</strong>, updated and tracked.</div>
+</section>
+
 <footer class="foot">
   Living Study Hub · built from your Unit I deck &amp; the Levitt reading · updated as the course grows.<br>
   Progress saves locally in your browser. To reset, clear this page's site data.
@@ -1166,6 +1353,41 @@ if(notes){
     }catch(e){ if(nstat) nstat.textContent='Could not save in this browser.'; }
   });
 }
+// Grade calculator (guarded; never breaks the page)
+(function(){
+  const ids=['g_gw','g_rq','g_t1','g_t2','g_fx'];
+  const els=ids.map(i=>document.getElementById(i));
+  const out=document.getElementById('g_out');
+  if(!out||els.some(e=>!e))return;
+  const nums=s=>(s||'').replace(/,/g,'.').split(/[\s;]+/).map(parseFloat).filter(x=>!isNaN(x)&&x>=1&&x<=7);
+  const one=s=>{const a=nums(s);return a.length?a[0]:null};
+  const dropWorst=a=>{if(!a.length)return null;if(a.length===1)return a[0];const b=[...a].sort((x,y)=>x-y).slice(1);return b.reduce((s,x)=>s+x,0)/b.length};
+  const f=x=>x.toFixed(2);
+  function calc(){
+    const v=els.map(e=>e.value);
+    try{localStorage.setItem('mkt1_grades',JSON.stringify(v))}catch(e){}
+    const parts=[['Group Works',dropWorst(nums(v[0])),.15],['Reading Quizzes',dropWorst(nums(v[1])),.15],['Test 1',one(v[2]),.20],['Test 2',one(v[3]),.20],['Final Exam',one(v[4]),.30]];
+    const have=parts.filter(p=>p[1]!==null);
+    if(!have.length){out.innerHTML='Enter at least one grade.';return;}
+    let html='<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px">'+parts.map(p=>'<span class="pill">'+p[0]+': <strong>'+(p[1]===null?'—':f(p[1]))+'</strong></span>').join('')+'</div>';
+    const wsum=have.reduce((s,p)=>s+p[2],0), acc=have.reduce((s,p)=>s+p[1]*p[2],0);
+    html+='<p style="margin:4px 0"><strong>Average so far</strong> (over the '+Math.round(wsum*100)+'% graded): <strong style="color:var(--ink)">'+f(acc/wsum)+'</strong></p>';
+    const fx=parts[4][1], pre=parts.slice(0,4);
+    if(fx!==null&&pre.every(p=>p[1]!==null)){
+      const tot=acc, pass=tot>=3.95&&fx>=3.0;
+      html+='<p style="margin:4px 0"><strong>Final course grade:</strong> <strong style="color:var(--ink)">'+f(tot)+'</strong> → '+(pass?'<span class="statusdone">passes</span>':'<span style="color:var(--yellow);font-weight:600">does not pass</span>'+(fx<3?' (Final Exam below 3.0)':''))+'</p>';
+    }else if(fx===null&&pre.every(p=>p[1]!==null)){
+      const need=(3.95-acc)/.30, req=Math.max(need,3.0);
+      html+='<p style="margin:4px 0"><strong>Final Exam grade needed to pass:</strong> <strong style="color:var(--ink)">'+(req>7?'above 7.0 — not reachable':f(Math.max(req,1)))+'</strong>'+(need<3?' <span class="small">(the 3.0 exam minimum is what binds)</span>':'')+'</p>';
+    }else{
+      html+='<p class="small" style="margin:4px 0">Fill in every component except the Final to see the Final Exam grade you need.</p>';
+    }
+    out.innerHTML=html;
+  }
+  try{const s=JSON.parse(localStorage.getItem('mkt1_grades')||'null');if(Array.isArray(s))s.forEach((x,i)=>{if(els[i])els[i].value=x||''})}catch(e){}
+  els.forEach(e=>e.addEventListener('input',calc));
+  calc();
+})();
 </script>
 </body>
 </html>
