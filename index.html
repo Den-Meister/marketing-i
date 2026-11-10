@@ -1416,22 +1416,30 @@ const GCcore={
     }
     return {type:'even',x:Math.max(x,100)};
   },
-  whatIf(cfg,vals,maxRows){ // when the target is already met: sample combos and show the resulting course grade
+  whatIf(cfg,vals,maxRows){ // target already met: realistic spread of results (0,1 steps) with the course grade
     const st=this.state(cfg,vals), P=st.pend, k=P.length; if(!k) return {rows:[],cols:[]};
-    const G=[300,400,500,600,700], all=[];
-    const rec=(d,cur)=>{ if(d===k){all.push(cur.slice());return;} for(const g of G){cur[d]=g;rec(d+1,cur);} };
-    rec(0,[]);
-    const tot=r=>st.U+r.reduce((s,g,j)=>s+g*cfg.comps[P[j]].w,0);
-    const sel=G.map(g=>all.find(r=>r.every(x=>x===g)));
-    const dist=(a,b)=>a.reduce((s,x,i)=>s+Math.abs(x-b[i]),0);
-    maxRows=maxRows||12;
-    while(sel.length<Math.min(maxRows,all.length)){
-      let best=null,bd=-1;
-      for(const r of all){ if(sel.includes(r))continue; const m=Math.min(...sel.map(x=>dist(r,x))); if(m>bd){bd=m;best=r;} }
-      if(!best)break; sel.push(best);
+    const w=P.map(i=>cfg.comps[i].w), tot=r=>st.U+r.reduce((s,g,j)=>s+g*w[j],0);
+    const clamp=g=>Math.min(700,Math.max(300,g)), cand=[], seen=new Set();
+    const push=r=>{const key=r.join();if(!seen.has(key)){seen.add(key);cand.push(r);}};
+    if(k<=3){ const rec=(d,cur)=>{ if(d===k){push(cur.slice());return;} for(let g=300;g<=700;g+=10){cur[d]=g;rec(d+1,cur);} }; rec(0,[]); }
+    else { const offs=[-30,-10,10,30], vec=[]; const rv=(d,cur)=>{ if(d===k){vec.push(cur.slice());return;} for(const o of offs){cur[d]=o;rv(d+1,cur);} }; rv(0,[]);
+      for(let b=300;b<=700;b+=10) for(const o of vec) push(o.map(x=>clamp(b+x))); }
+    const base=new Array(k).fill(300), lo=tot(base), hi=tot(new Array(k).fill(680));
+    const rows=[base]; maxRows=maxRows||12; const n=maxRows-1, bw=(hi-lo)/n;
+    const sp=r=>Math.max(...r)-Math.min(...r), rnd=r=>r.filter(g=>g%50===0).length;
+    for(let b=0;b<n;b++){
+      const center=lo+bw*(b+1); let best=null,bs=Infinity;
+      for(const r of cand){
+        if(rows.includes(r))continue;
+        const t=tot(r); if(Math.abs(t-center)>bw*0.6)continue;
+        let sc=Math.abs(t-center)/bw + 0.5*rnd(r) + (sp(r)>120?2:0) + (k>1&&sp(r)<20?0.3:0);
+        if(k>1){ const lean=Math.sign(r[0]-r[k-1]); if(lean!==(b%2?1:-1))sc+=0.3; }
+        if(sc<bs){bs=sc;best=r;}
+      }
+      if(best)rows.push(best);
     }
-    sel.sort((a,b)=>tot(a)-tot(b)||a.join().localeCompare(b.join()));
-    return {rows:sel.map(r=>({r,U:tot(r)})),cols:P};
+    rows.sort((x,y)=>tot(x)-tot(y));
+    return {rows:rows.map(r=>({r,U:tot(r)})),cols:P};
   },
   scenarios(cfg,vals,T,maxRows){
     const st=this.state(cfg,vals), P=st.pend; if(!P.length) return {rows:[],cols:[],relaxed:false};
@@ -1541,7 +1549,7 @@ const GCcore={
       const head=cols=>'<div class="card" style="overflow-x:auto;padding:10px 12px"><table style="width:100%;border-collapse:collapse;font-size:.95rem;color:var(--ink2);text-align:center"><tr style="color:var(--ink);border-bottom:1px solid var(--line)">'+cols.map(i=>'<th style="padding:6px">'+C.comps[i].name.replace(' (your average)','')+'<br><span class="small">'+C.comps[i].w+'%</span></th>').join('')+'<th style="padding:6px">Course grade<br><span class="small">raw → rounded</span></th></tr>';
       const rowU=r=>st.U+r.reduce((a,g,j)=>a+g*C.comps[s.cols[j]].w,0);
       if(s.atFloor){
-        const wi=c.whatIf(C,v,12); let t='<div class="callout global"><span class="h">✅ Already reaching '+c.fmt2(T)+'</span>3,0 on every pending evaluation is enough. The table shows what the final course grade would be with different results.</div>'+head(wi.cols);
+        const wi=c.whatIf(C,v,12); let t='<div class="callout global"><span class="h">✅ Already reaching '+c.fmt2(T)+'</span>3,0 on every pending evaluation is enough. The table shows what the final course grade would be with a realistic spread of results (from 3,0 on everything up to high grades).</div>'+head(wi.cols);
         wi.rows.forEach(o=>{t+='<tr style="border-bottom:1px solid var(--line)">'+o.r.map(g=>'<td style="padding:6px">'+c.fmt1(g/10)+'</td>').join('')+cg(o.U)+'</tr>'});
         $('gc_table').innerHTML=t+'</table></div>'; return;
       }
